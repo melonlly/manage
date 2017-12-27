@@ -1,4 +1,4 @@
-# yes
+# manage
 
 > A Vue.js project
 
