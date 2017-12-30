@@ -6,9 +6,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.manage.user.User;
 import com.manage.user.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.Map;
 /**
  * Created by melon on 2017/12/20.
  */
-@RestController
+@Controller
 public class HelloController {
 
     //自动注入
@@ -25,6 +26,7 @@ public class HelloController {
     public UserDao userDao;
 
 	@RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
+    @ResponseBody
 	public String hello(String name){
         String json = "";
         //根据id获取数据
@@ -38,6 +40,7 @@ public class HelloController {
 	}
 
 	@RequestMapping(value = "/json", method = RequestMethod.GET)
+    @ResponseBody
 	public Map<String,Object> json(){
 	    Map<String,Object> map = new HashMap<String,Object>();
 	    map.put("name","dsdas111");
@@ -45,4 +48,20 @@ public class HelloController {
 	    map.put("dsada","dsada333");
 	    return map;
     }
+
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
+
 }

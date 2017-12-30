@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Manage</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+<h1>Login My Manage PlatForm</h1>
+<div class="login-form">
+    <div class="close"> </div>
+    <div class="head-info">
+        <label class="lbl-1"> </label>
+        <label class="lbl-2"> </label>
+        <label class="lbl-3"> </label>
+    </div>
+    <div class="clear"> </div>
+    <div class="avtar">
+        <img src="image/avtar.png" />
+    </div>
+    <form th:action="@{/login}" method="post" style="font-style: italic">
+        <div>用户:<input type="text" class="text" name="username"/></div>
+        <div>密码:<input type="password" name="password"/></div>
+        <div class="signin"><input type="submit" value="登录"/></div>
+    </form>
+</div>
+<div th:if="${param.error}">
+    用户名或密码错
+</div>
+<div th:if="${param.logout}">
+    您已注销成功
+</div>
+</body>
+</html>
