@@ -1,0 +1,46 @@
+#app {
+  width: 100%;
+  height: 800px;
+}
+#app .header {
+  top: 0;
+  height: 15%;
+  border-bottom: 1px solid #f00;
+}
+#app .header .logo {
+  display: inline-block;
+  float: left;
+  width: 15%;
+  background-color: #fff;
+}
+#app .header .nav-sub {
+  float: left;
+  width: 65%;
+  background-color: #008000;
+}
+#app .header .user {
+  float: left;
+  width: 20%;
+  background-color: #00f;
+}
+#app .main .filter {
+  height: 15%;
+  background-color: #00f5ff;
+}
+#app .main .content {
+  height: 70%;
+  background-color: #808080;
+}
+#app .footer {
+  bottom: 0;
+  height: 15%;
+  text-align: center;
+  background-color: #6756ea;
+}
+#app .footer .nav-main {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  text-align: center;
+  background-color: #f1c85f;
+}

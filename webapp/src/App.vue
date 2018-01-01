@@ -1,23 +1,44 @@
 <template>
-  <div id="app">
-    <img src="assetsogo.png">
-    <router-view/>
-  </div>
+
+	<div id="app">
+
+		<div class="header">
+			<div class="logo">logo</div>
+			<div class="nav-sub">nav-sub</div>
+			<div class="user">user</div>
+		</div>
+
+		<div class="main">
+			<div class="filter">filter</div>
+			<div class="content">content</div>
+		</div>
+
+		<div class="footer">
+			<div class="nav-main">nav-main</div>
+		</div>
+
+	</div>
+
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
-  name: 'app'
+    name: 'app',
+    data () {
+        
+    },
+    methods () {
+        
+    },
+    created () {
+        
+    },
+    components: {
+        
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus" rel="stylesheet/stylus">
+	@import "app.styl";
 </style>
