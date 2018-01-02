@@ -1,6 +1,6 @@
 <template>
 
-	<div id="app">
+	<div id="app" :style="{ height: height() }">
 
 		<div class="header">
 			<div class="logo">logo</div>
@@ -25,13 +25,16 @@
 export default {
     name: 'app',
     data () {
-        
+        return {}
     },
-    methods () {
-        
+    methods: {
+		// 计算页面高度
+        height () {
+            return window.innerHeight + "px"
+        }
     },
     created () {
-        
+
     },
     components: {
         
