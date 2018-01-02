@@ -1,24 +1,27 @@
 #app
     width: 100%
     .header
+        display: flex
         top: 0
         height: 10%
         border-bottom: 1px solid red
         .logo
-            display: inline-block
-            float: left
             width: 10%
-            height: 100%
             background-color: white
         .nav-sub
-            float: left
             width: 70%
-            height: 100%
             background-color: green
+            ul
+                display: flex
+                height: 100%
+                li
+                    height: 100%
+                    background-color: #dd3e3e
         .user
-            float: left
+            display: flex
+            justify-content: flex-end
+            align-items: center
             width: 20%
-            height: 100%
             background-color: blue
 
     .main
@@ -31,13 +34,21 @@
             background-color: gray
 
     .footer
+        display: flex
+        justify-content: center
         bottom: 0
         height: 15%
-        text-align: center
         background-color: #6756ea
         .nav-main
-            display: inline-block
             width: 80%
             height: 100%
-            text-align: center
             background-color: #f1c85f
+            ul
+                display: flex
+                justify-content: center
+                height: 100%
+                li
+                    width: 150px
+                    height: 100%
+                    line-height: 100%
+                    background-color: #3faa53
