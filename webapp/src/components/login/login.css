@@ -1,0 +1,65 @@
+#login {
+  background-size: cover;
+  background-image: url("bg1.jpg");
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+}
+#login .login-box {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 20%;
+  right: 5%;
+  padding: 20px 50px;
+  width: 30%;
+  height: 50%;
+}
+#login .login-box .user {
+  background-color: rgba(105,105,105,0.3);
+  border-radius: 15px;
+  height: 200px;
+  width: 80%;
+}
+#login .login-box .user div {
+  padding: 5%;
+}
+#login .login-box .user div i {
+  height: 100%;
+  width: 25%;
+  padding-right: 5%;
+}
+#login .login-box .user div input {
+  padding-left: 8%;
+  height: 100%;
+  width: 75%;
+  background-color: rgba(105,105,105,0);
+  border-left: 1px solid rgba(255,255,255,0.5);
+}
+#login .login-box .user .account {
+  margin-top: 10px;
+  height: 30%;
+  position: relative;
+}
+#login .login-box .user .account::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  content: ' ';
+}
+#login .login-box .user .password {
+  height: 30%;
+}
+#login .login-box .login-in {
+  margin-top: 5%;
+  padding: 10px;
+  width: 70%;
+  text-align: center;
+  background-color: rgba(105,105,105,0.3);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 25px;
+}

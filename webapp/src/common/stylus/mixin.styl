@@ -1,0 +1,11 @@
+/* 设置底边框 */
+border-bottom-setter($width, $color)
+    position: relative
+    &::after
+        display: block
+        position: absolute
+        left: 0
+        bottom: 0
+        width: 100%
+        border-bottom: $width solid $color
+        content: ' '

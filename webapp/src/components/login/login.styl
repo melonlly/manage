@@ -1,0 +1,49 @@
+@import "../../common/stylus/mixin.styl"
+
+#login
+    background-size: cover;
+    background-image: url(bg1.jpg);
+    font-family: 'Open Sans', sans-serif;
+    width: 100%
+    .login-box
+        position: fixed
+        display: flex
+        flex-direction: column
+        align-items: center
+        top: 20%
+        right: 5%
+        padding: 20px 50px
+        width: 30%
+        height: 50%
+        .user
+            background-color: rgba(105, 105, 105, .3)
+            border-radius: 15px
+            height: 200px
+            width: 80%
+            div
+                padding: 5%
+                i
+                    height: 100%
+                    width: 25%
+                    padding-right: 5%
+                input
+                    padding-left: 8%
+                    height: 100%
+                    width 75%
+                    background-color: rgba(105, 105, 105, 0)
+                    border-left: 1px solid rgba(255, 255, 255, .5)
+            .account
+                margin-top: 10px
+                height: 30%
+                border-bottom-setter(1px, rgba(255, 255, 255, .5))
+            .password
+                height: 30%
+        .login-in
+            margin-top: 5%
+            padding: 10px
+            width: 70%
+            text-align: center
+            background-color: rgba(105, 105, 105, .3)
+            border-radius: 5px
+            color: #fff
+            font-size: 25px
