@@ -15,6 +15,14 @@
   width: 30%;
   height: 50%;
 }
+#login .login-box .title {
+  margin-bottom: 10px;
+  width: 80%;
+  height: 50px;
+  text-align: center;
+  color: rgba(0,0,139,0.8);
+  font-size: 30px;
+}
 #login .login-box .user {
   background-color: rgba(105,105,105,0.3);
   border-radius: 15px;
@@ -28,17 +36,18 @@
   height: 100%;
   width: 25%;
   padding-right: 5%;
+  color: #fff;
 }
 #login .login-box .user div input {
   padding-left: 8%;
   height: 100%;
-  width: 75%;
+  width: 70%;
   background-color: rgba(105,105,105,0);
   border-left: 1px solid rgba(255,255,255,0.5);
+  color: #fff;
 }
 #login .login-box .user .account {
-  margin-top: 10px;
-  height: 30%;
+  height: 32.5%;
   position: relative;
 }
 #login .login-box .user .account::after {
@@ -51,7 +60,7 @@
   content: ' ';
 }
 #login .login-box .user .password {
-  height: 30%;
+  height: 32.5%;
 }
 #login .login-box .login-in {
   margin-top: 5%;
@@ -62,4 +71,5 @@
   border-radius: 5px;
   color: #fff;
   font-size: 25px;
+  cursor: pointer;
 }

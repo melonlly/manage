@@ -1,6 +1,6 @@
 <template>
 
-	<div id="app" :style="{ height: $height }">
+	<div id="index" :style="{ height: $height }">
 
 		<div class="header">
 			<div class="logo">logo</div>
@@ -38,7 +38,7 @@
 
 <script type="text/ecmascript-6">
 export default {
-    name: 'app',
+    name: 'index',
     data () {
         return {}
     },
@@ -55,5 +55,5 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-	@import "app.styl";
+	@import "index.styl";
 </style>

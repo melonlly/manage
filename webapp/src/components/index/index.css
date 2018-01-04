@@ -1,59 +1,59 @@
-#app {
+#index {
   width: 100%;
 }
-#app .header {
+#index .header {
   display: flex;
   top: 0;
   height: 10%;
 }
-#app .header .logo {
+#index .header .logo {
   width: 10%;
   background-color: #001937;
 }
-#app .header .nav-sub {
+#index .header .nav-sub {
   width: 70%;
   background-color: #122644;
 }
-#app .header .nav-sub ul {
+#index .header .nav-sub ul {
   display: flex;
   height: 100%;
 }
-#app .header .nav-sub ul li {
+#index .header .nav-sub ul li {
   height: 100%;
   background-color: #122644;
 }
-#app .header .user {
+#index .header .user {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 20%;
   background-color: #001937;
 }
-#app .main {
+#index .main {
   height: 90%;
 }
-#app .main .content {
+#index .main .content {
   height: 100%;
   background-color: #0450d7;
 }
-#app .footer {
+#index .footer {
   position: fixed;
   bottom: 0;
   margin-left: 10%;
   width: 80%;
   height: 15%;
 }
-#app .footer .nav-main {
+#index .footer .nav-main {
   width: 100%;
   height: 100%;
   background-color: #122644;
 }
-#app .footer .nav-main ul {
+#index .footer .nav-main ul {
   display: flex;
   justify-content: center;
   height: 100%;
 }
-#app .footer .nav-main ul li {
+#index .footer .nav-main ul li {
   width: 150px;
   height: 100%;
   line-height: 100%;

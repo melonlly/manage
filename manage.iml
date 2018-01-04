@@ -138,5 +138,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy:2.4.13" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.4" level="project" />
     <orderEntry type="library" name="vue" level="application" />
+    <orderEntry type="library" name="axios" level="project" />
   </component>
 </module>
