@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Manage</title>
+</head>
+<body>
+<form th:action="@{/saveUser}" method="post" style="font-style: italic">
+    <label>id<input type="text" class="text" name="id" /></label>
+    <label>名称<input type="text" class="text" name="name" /></label>
+    <label>密码<input type="text" class="text" name="password" /></label>
+    <input type="submit" value="创建"/>
+</form>
+</body>
+</html>
