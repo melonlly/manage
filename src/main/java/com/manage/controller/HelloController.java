@@ -36,7 +36,11 @@ public class HelloController {
         if(list != null && list.size() > 0){
             json =  JSON.toJSONString(list);
         }
-	    return json;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data",JSON.parseArray(json));
+        jsonObject.put("code","0");
+        jsonObject.put("count",110);
+	    return jsonObject.toJSONString();
 	}
 
 	@RequestMapping(value = "/json", method = RequestMethod.GET)

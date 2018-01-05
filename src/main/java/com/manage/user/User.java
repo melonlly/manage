@@ -10,6 +10,7 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;//id主键
     private String name;//用户名
+    private String password;//用户密码
 
     public int getId() {
         return id;
@@ -25,5 +26,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
