@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="main">
-			<div class="content">
+			<div class="content" ref="box">
 				<list :type="list_type" :options="list_ops" :columns="list_cols"></list>
 			</div>
 		</div>

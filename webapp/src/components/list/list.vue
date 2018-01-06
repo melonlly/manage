@@ -7,17 +7,27 @@
 				</tr>
 			</table>
 		</div>
-		<div class="no_data" v-show="">
+		<div class="no_data" v-show="no_data">
 			<i></i>
 			<p>暂无数据</p>
 		</div>
-		<div class="pages">
+		<div class="pages" v-show="pages">
 			<div class="num">
 				<span>每页显示</span>
-				<drop :entries="sizes" :selected="setSize"></drop>
+				<drop :entries="sizes" :width="pages_drop_w" :default="sizes[0]"></drop>
 			</div>
 			<div class="stat">
-				<span><em class="active">1</em></span>
+				<span class="indexs">
+					<a href="javascript:;" class="pre"></a>
+					<em class="active">1</em>
+					<em>2</em>
+					<em>3</em>
+					<span style="margin: 0 10px">...</span>
+					<em>6</em>
+					<em>7</em>
+					<em>8</em>
+					<a href="javascript:;" class="next"></a>
+				</span>
 				<span>跳转至</span>
 				<input type="text" class="text"/>
 				<span>页</span>
@@ -30,6 +40,8 @@
 <script type="text/ecmascript-6">
 	import drop from 'components/drop/drop'
 
+	const DROP_WIDTH = '100px' // 分页大小下拉框宽度
+
 	export default {
 	    props: ['type', 'options', 'columns'],
 		name: 'list',
@@ -37,12 +49,14 @@
 			return {
 			    url: this.options.url, // 请求链接
                 params: this.options.params, // 请求参数
+                pages: this.options.pages, // 是否分页
                 totalRows: 0, // 总行数
                 totalPages: 0, // 总页数
 				index: this.options.params.index, // 当前页码
 				size: this.options.params.size, // 每页大小
                 sizes: [{text: 10}, {text: 20}, {text: 30}],
-				no_data: false
+				no_data: false,
+                pages_drop_w: DROP_WIDTH
 			}
 		},
 		methods: {
@@ -55,7 +69,7 @@
 			console.log(this.columns)
 
 //			this.$http.post(this.url, this.params).then(res => {
-//
+//				let datalist = res.datalist
 //			}).catch(error => {
 //
 //			})

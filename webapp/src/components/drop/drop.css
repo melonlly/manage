@@ -1,0 +1,68 @@
+.drop {
+  position: relative;
+  float: left;
+  margin-left: 20px;
+  height: 36px;
+  line-height: 34px;
+  border: 1px solid #e6e7e8;
+  border-radius: 20px;
+}
+.drop strong {
+  position: relative;
+  display: block;
+  padding: 0 20px;
+  height: 100%;
+  font-size: 14px;
+  color: #282f35;
+  cursor: pointer;
+}
+.drop strong i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  background: url("ic_expand.png") no-repeat center;
+  transition: all 0.3s;
+}
+.drop strong i.close {
+  transform: rotate(180deg);
+}
+.drop .drop_ul {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 1px;
+  width: 100%;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 3px 5.196px 16px 0px rgba(0,0,0,0.06);
+}
+.drop .drop_ul li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.drop .drop_ul li a {
+  display: block;
+  padding: 0 20px;
+  height: 44px;
+  line-height: 44px;
+  color: #282f35;
+  font-size: 12px;
+}
+.drop .drop_ul li a:hover {
+  background: #f4f4f5;
+}
+.drop-enter-active,
+.drop-leave-active {
+  transition: all 0.3s ease-in;
+  transform-origin: 50% 0;
+  transform: scaleY(1);
+}
+.drop-enter,
+.drop-leave-active {
+  transform: scaleY(0);
+}

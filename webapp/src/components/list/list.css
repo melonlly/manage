@@ -1,0 +1,111 @@
+.main {
+  padding: 30px;
+  background: #fff;
+  border-radius: 7px;
+  height: 100%;
+}
+.main .table_box table tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+.main .table_box table tr th {
+  text-align: center;
+  padding: 15px 0;
+  background: #f4f4f5;
+  font-size: 16px;
+  color: #040404;
+  font-weight: normal;
+}
+.main .table_box table tr td {
+  border-bottom: 1px solid #ededee;
+  font-size: 12px;
+  color: #040404;
+}
+.main .no_data {
+  text-align: center;
+  margin: 100px 0;
+}
+.main .pages {
+  height: 10%;
+  margin-top: 25px;
+}
+.main .pages .num {
+  float: left;
+  height: 36px;
+  line-height: 36px;
+}
+.main .pages .num span {
+  float: left;
+  font-size: 16px;
+  color: #040404;
+}
+.main .pages .stat {
+  float: right;
+}
+.main .pages .stat span.indexs {
+  margin-right: 20px;
+}
+.main .pages .stat span {
+  float: left;
+  font-size: 16px;
+  color: #040404;
+  line-height: 36px;
+}
+.main .pages .stat span .pre {
+  float: left;
+  width: 36px;
+  height: 36px;
+  background: url("icon_pre.png") no-repeat center;
+}
+.main .pages .stat span em {
+  float: left;
+  margin-left: 5px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #040404;
+  line-height: 34px;
+  border: 1px solid #fff;
+  font-style: normal;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.main .pages .stat span em.active {
+  border: 1px solid #57aef4;
+  color: #57aef4;
+}
+.main .pages .stat span em:hover {
+  background: #f6f6f7;
+}
+.main .pages .stat span .next {
+  float: left;
+  width: 36px;
+  height: 36px;
+  background: url("icon_next.png") no-repeat center;
+}
+.main .pages .stat .text {
+  float: left;
+  margin: 0 10px;
+  text-align: center;
+  width: 60px;
+  height: 36px;
+  line-height: 34px;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+}
+.main .pages .stat .enter {
+  float: left;
+  margin-left: 20px;
+  width: 60px;
+  height: 36px;
+  line-height: 34px;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #040404;
+}
+.main .pages .stat .enter:hover {
+  border: 1px solid #57aef4;
+  color: #57aef4;
+}
