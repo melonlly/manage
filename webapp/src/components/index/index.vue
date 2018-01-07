@@ -17,7 +17,7 @@
 
 		<div class="main">
 			<div class="content" ref="box">
-				<list :type="list_type" :options="list_ops" :columns="list_cols"></list>
+				<list :type="list_type" :options="list_ops" :columns="list_cols" @filter="filter"></list>
 			</div>
 		</div>
 
@@ -49,8 +49,17 @@
 		methods: {
             before () { console.log('before') },
 			after (res) { console.log(res) },
-            func1 (val) { console.log(val) },
-            actionRender () { console.log('actionRender') }
+			// 过滤处理数据集
+            filter (datalist) {
+                const _this = this
+                datalist.forEach(data => {
+                    if(_this.list_cols.find(col => col.name === '$operat')){
+                        data.$operat = ''
+					}
+				})
+                this.datalist = datalist
+                return datalist
+			}
 		},
 		created () {
 		    this.list_type = 'table'
@@ -67,8 +76,7 @@
 			this.list_cols = [
 				{
 				    name: 'col1',
-					text: '字段1',
-					func: this.func1
+					text: '字段1'
 				},{
                     name: 'col2',
                     text: '字段2'
@@ -78,8 +86,7 @@
 					hide: true
 				},{
                     name: '$operat',
-                    text: '操作',
-					func: this.actionRender
+                    text: '操作'
 				}
 			]
 		},

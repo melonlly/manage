@@ -33,14 +33,12 @@
                 this.text = item.text
 				this.value = item.value || item.text
 				this.show = false
+				this.$emit('selected', this.value)
 			}
         },
         created () {
 
         },
-		mounted () {
-
-		},
         components: {
             
         }

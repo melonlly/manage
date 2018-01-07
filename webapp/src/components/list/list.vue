@@ -3,7 +3,10 @@
 		<div class="table_box">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<th v-for="th in columns" v-show="!th.hide">{{th.text}}</th>
+					<th v-for="th in columns" v-if="!th.hide">{{th.text}}</th>
+				</tr>
+				<tr v-for="tr in datalist">
+					<td v-for="(value, key) in tr" v-if="!columns.find(item => item.name === key).hide">{{value}}</td>
 				</tr>
 			</table>
 		</div>
@@ -14,7 +17,7 @@
 		<div class="pages" v-show="pages">
 			<div class="num">
 				<span>每页显示</span>
-				<drop :entries="sizes" :width="pages_drop_w" :default="sizes[0]"></drop>
+				<drop :entries="sizes" :width="'100px'" :default="sizes[0]" @selected="setSize"></drop>
 			</div>
 			<div class="stat">
 				<span class="indexs">
@@ -39,8 +42,7 @@
 
 <script type="text/ecmascript-6">
 	import drop from 'components/drop/drop'
-
-	const DROP_WIDTH = '100px' // 分页大小下拉框宽度
+	import oprate from 'components/oprate/oprate'
 
 	export default {
 	    props: ['type', 'options', 'columns'],
@@ -56,12 +58,17 @@
 				size: this.options.params.size, // 每页大小
                 sizes: [{text: 10}, {text: 20}, {text: 30}],
 				no_data: false,
-                pages_drop_w: DROP_WIDTH
+				datalist: []
 			}
 		},
 		methods: {
 	        // 设置每页大小
-			setSize (value) { this.size = value }
+			setSize (value) { this.size = value },
+			// 是否隐藏字段
+            hideCol (key) {
+			    console.log(key)
+//			    return !this.columns.find(item => item.name === key).hide
+			}
 		},
 		created () {
 	        console.log(this.type)
@@ -69,14 +76,31 @@
 			console.log(this.columns)
 
 //			this.$http.post(this.url, this.params).then(res => {
-//				let datalist = res.datalist
+//				this.datalist = res.datalist
+//				if(this.datalist){
+//                    this.datalist = this.$emit('filter', this.datalist)
+//				}
 //			}).catch(error => {
 //
 //			})
 
+			this.datalist = [{
+	            col1: "1",
+                col2: "2",
+                col3: "3",
+			}, {
+                col1: "3",
+                col2: "2",
+                col3: "1",
+			}]
+            this.$emit('filter', this.datalist)
+			console.log(this.$parent.datalist)
+			this.datalist = this.$parent.datalist
+			console.log(this.datalist)
 		},
 		components: {
-            drop
+            drop,
+            oprate
 		}
 	}
 </script>

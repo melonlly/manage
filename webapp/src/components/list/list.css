@@ -18,9 +18,20 @@
   font-weight: normal;
 }
 .main .table_box table tr td {
+  padding: 15px 15px;
+  color: #040404;
+  text-align: center;
   border-bottom: 1px solid #ededee;
   font-size: 12px;
   color: #040404;
+}
+.main .table_box table tr td .icon_remove {
+  display: inline-block;
+  zoom: 1;
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+  background: url("remove.png") no-repeat center;
 }
 .main .no_data {
   text-align: center;
