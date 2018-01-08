@@ -3,7 +3,7 @@
 		<strong @click="showUl">{{text}}<i :class="{ close: show }"></i></strong>
 		<transition name="drop">
 			<ul class="drop_ul" v-show="show">
-				<li @click="select(item)" v-for="item in entries"><a href="javascript:;">{{item.text}}</a></li>
+				<li @click="select(item)" v-for="item in entries"><a>{{item.text}}</a></li>
 			</ul>
 		</transition>
 	</div>

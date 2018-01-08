@@ -19,10 +19,10 @@
 }
 .main .table_box table tr td {
   padding: 15px 15px;
-  color: #040404;
   text-align: center;
+  vertical-align: middle;
   border-bottom: 1px solid #ededee;
-  font-size: 12px;
+  font-size: 14px;
   color: #040404;
 }
 .main .table_box table tr td .icon_remove {
@@ -54,20 +54,24 @@
 .main .pages .stat {
   float: right;
 }
-.main .pages .stat span.indexs {
-  margin-right: 20px;
-}
 .main .pages .stat span {
   float: left;
   font-size: 16px;
   color: #040404;
   line-height: 36px;
 }
+.main .pages .stat span.indexs {
+  margin-right: 20px;
+}
+.main .pages .stat span.indexs span {
+  margin: 0 10px;
+}
 .main .pages .stat span .pre {
   float: left;
   width: 36px;
   height: 36px;
   background: url("icon_pre.png") no-repeat center;
+  cursor: pointer;
 }
 .main .pages .stat span em {
   float: left;
@@ -93,6 +97,7 @@
   width: 36px;
   height: 36px;
   background: url("icon_next.png") no-repeat center;
+  cursor: pointer;
 }
 .main .pages .stat .text {
   float: left;
@@ -103,6 +108,11 @@
   line-height: 34px;
   border: 1px solid #e5e5e5;
   border-radius: 20px;
+  -moz-appearance: textfield /* Firefox */;
+}
+.main .pages .stat .text::-webkit-outer-spin-button,
+.main .pages .stat .text::-webkit-inner-spin-button {
+  -webkit-appearance: none !important /* chrome */;
 }
 .main .pages .stat .enter {
   float: left;
@@ -115,6 +125,7 @@
   text-align: center;
   font-size: 16px;
   color: #040404;
+  cursor: pointer;
 }
 .main .pages .stat .enter:hover {
   border: 1px solid #57aef4;

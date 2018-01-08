@@ -26,8 +26,8 @@ Axios.interceptors.request.use(req => {
 
 // 响应拦截器
 Axios.interceptors.response.use(res => {
-    if (!res.data.success) {
-        alert(res.error_info)
+    if (res.code !== this.ERR_OK) {
+        alert(res.error)
         return Promise.reject(res)
     }
 }, error => {

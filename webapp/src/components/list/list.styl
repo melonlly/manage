@@ -17,11 +17,11 @@
                     color: #040404
                     font-weight: normal
                 td
-                    padding: 15px 15px;
-                    color: #040404;
-                    text-align: center;
+                    padding: 15px 15px
+                    text-align: center
+                    vertical-align: middle
                     border-bottom: 1px solid #ededee
-                    font-size: 12px
+                    font-size: 14px
                     color: #040404
                     .icon_remove
                         display: inline-block
@@ -46,18 +46,21 @@
                 color: #040404
         .stat
             float: right
-            span.indexs
-                margin-right: 20px
             span
                 float: left
                 font-size: 16px
                 color: #040404
                 line-height: 36px
+                &.indexs
+                    margin-right: 20px
+                    span
+                        margin: 0 10px
                 .pre
                     float: left
                     width: 36px
                     height: 36px
                     background: url(icon_pre.png) no-repeat center
+                    cursor: pointer
                 em
                     float: left
                     margin-left: 5px
@@ -69,16 +72,17 @@
                     font-style: normal
                     border-radius: 20px
                     cursor: pointer
-                em.active
-                    border: 1px solid #57aef4
-                    color: #57aef4
-                em:hover
-                    background: #f6f6f7
+                    &.active
+                        border: 1px solid #57aef4
+                        color: #57aef4
+                    &:hover
+                        background: #f6f6f7
                 .next
                     float: left
                     width: 36px
                     height: 36px
                     background: url(icon_next.png) no-repeat center
+                    cursor: pointer
             .text
                 float: left
                 margin: 0 10px
@@ -88,6 +92,9 @@
                 line-height: 34px
                 border: 1px solid #e5e5e5
                 border-radius: 20px
+                -moz-appearance: textfield  /* Firefox */
+                &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+                    -webkit-appearance: none!important  /* chrome */
             .enter
                 float: left
                 margin-left: 20px
@@ -99,6 +106,7 @@
                 text-align: center
                 font-size: 16px
                 color: #040404
-            .enter:hover
-                border: 1px solid #57aef4
-                color: #57aef4
+                cursor: pointer
+                &:hover
+                    border: 1px solid #57aef4
+                    color: #57aef4

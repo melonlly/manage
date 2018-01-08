@@ -16,8 +16,8 @@
 		</div>
 
 		<div class="main">
-			<div class="content" ref="box">
-				<list :type="list_type" :options="list_ops" :columns="list_cols" @filter="filter"></list>
+			<div class="content">
+				<!--<list :type="list_type" :options="list_ops" :columns="list_cols" @filter="filter" @before="before" @after="after"></list>-->
 			</div>
 		</div>
 
@@ -50,45 +50,42 @@
             before () { console.log('before') },
 			after (res) { console.log(res) },
 			// 过滤处理数据集
-            filter (datalist) {
+            filter (data) {
                 const _this = this
-                datalist.forEach(data => {
-                    if(_this.list_cols.find(col => col.name === '$operat')){
-                        data.$operat = ''
-					}
+                data.forEach(item => {
+
 				})
-                this.datalist = datalist
-                return datalist
+                this.data = data
+                return data
 			}
 		},
 		created () {
-		    this.list_type = 'table'
-			this.list_ops = {
-		        url: '/list',
-				params: {
-		            index: 1,
-					size: 10
-				},
-				pages: true,
-				before: this.before, // 请求前事件
-				after: this.after // 加载完成后事件
-			}
-			this.list_cols = [
-				{
-				    name: 'col1',
-					text: '字段1'
-				},{
-                    name: 'col2',
-                    text: '字段2'
-				},{
-                    name: 'col3',
-                    text: '字段3',
-					hide: true
-				},{
-                    name: '$operat',
-                    text: '操作'
-				}
-			]
+//		    this.list_type = 'table'
+//			this.list_ops = {
+//		        url: '/hello/json',
+//				params: {
+//		            index: 1,
+//					size: 10
+//				},
+//                isPage: false,
+//			}
+//			this.list_cols = [
+//				{
+//				    name: 'id',
+//					text: '字段1',
+//                    hide: true
+//				},{
+//                    name: 'name',
+//                    text: '字段2'
+//				},{
+//                    name: 'password',
+//                    text: '字段3',
+//				},{
+//                    name: '$operate',
+//                    text: '操作',
+//					operate: ['remove', 'edit']
+//				}
+//			]
 		},
 		components: {
             list

@@ -22,8 +22,8 @@
             height: 36px
             background: url(ic_expand.png) no-repeat center
             transition: all .3s
-        i.close
-            transform: rotate(180deg)
+            &.close
+                transform: rotate(180deg)
     .drop_ul
         position: absolute
         z-index: 1000
@@ -46,8 +46,8 @@
                 line-height: 44px
                 color: #282F35
                 font-size: 12px
-            a:hover
-                background: #f4f4f5
+                &:hover
+                    background: #f4f4f5
 
 .drop-enter-active, .drop-leave-active{
     transition: all .3s ease-in
