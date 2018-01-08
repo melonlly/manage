@@ -26,32 +26,32 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-    name: 'login',
-    data () {
-        return {
-            account: '',
-			password: ''
-		}
-    },
-    methods: {
-        login () {
-            if(this.account && this.password){
-//				this.$http.post('/login', data).then(res => {
-				    this.$router.push({ path: 'index' })
-//				}).catch(error => {
-//
-//				})
+	export default {
+		name: 'login',
+		data () {
+			return {
+				account: '',
+				password: ''
 			}
+		},
+		methods: {
+			login () {
+				if(this.account && this.password){
+	//				this.$http.post('/login', data).then(res => {
+						this.$router.push({ path: 'index' })
+	//				}).catch(error => {
+	//
+	//				})
+				}
+			}
+		},
+		created () {
+
+		},
+		components: {
+
 		}
-    },
-    created () {
-        
-    },
-    components: {
-        
-    }
-}
+	}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
