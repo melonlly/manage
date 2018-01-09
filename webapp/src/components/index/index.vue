@@ -3,35 +3,19 @@
 	<div id="index" :style="{ height: $height() }">
 
 		<div class="header">
-			<div class="logo">logo</div>
-			<div class="nav-sub">
-				<ul>
-					<li>nav-sub-1</li>
-					<li>nav-sub-2</li>
-					<li>nav-sub-3</li>
-					<li>nav-sub-4</li>
-				</ul>
-			</div>
-			<div class="user">user</div>
+			<logo></logo>
+			<nvg></nvg>
+			<user></user>
 		</div>
 
 		<div class="main">
 			<div class="content">
-				<!--<list :type="list_type" :options="list_ops" :columns="list_cols" @filter="filter" @before="before" @after="after"></list>-->
+				<list :type="list_type" :options="list_ops" :columns="list_cols" @filter="filter" @before="before" @after="after"></list>
 			</div>
 		</div>
 
 		<div class="footer">
-			<div class="nav-main">
-				<ul>
-					<li>nav-main-1</li>
-					<li>nav-main-2</li>
-					<li>nav-main-3</li>
-					<li>nav-main-4</li>
-					<li>nav-main-5</li>
-					<li>nav-main-6</li>
-				</ul>
-			</div>
+			<dock :docks="docks"></dock>
 		</div>
 
 	</div>
@@ -40,11 +24,18 @@
 
 <script type="text/ecmascript-6">
 	import list from 'components/list/list'
+	import dock from 'components/dock/dock'
+	import logo from 'components/logo/logo'
+	import user from 'components/user/user'
+	import nvg from 'components/nvg/nvg'
 
 	export default {
 		name: 'index',
 		data () {
-			return {}
+			return {
+                menu: [],
+			    docks: []
+			}
 		},
 		methods: {
             before () { console.log('before') },
@@ -60,35 +51,46 @@
 			}
 		},
 		created () {
-//		    this.list_type = 'table'
-//			this.list_ops = {
-//		        url: '/hello/json',
-//				params: {
-//		            index: 1,
-//					size: 10
-//				},
-//                isPage: false,
-//			}
-//			this.list_cols = [
-//				{
-//				    name: 'id',
-//					text: '字段1',
-//                    hide: true
-//				},{
-//                    name: 'name',
-//                    text: '字段2'
-//				},{
-//                    name: 'password',
-//                    text: '字段3',
-//				},{
-//                    name: '$operate',
-//                    text: '操作',
-//					operate: ['remove', 'edit']
-//				}
-//			]
+		    this.$http.post('/menu', {}).then(res => {
+                if(res.data.code === this.ERR_OK){
+                    this.menu = res.data.data
+					this.menu.forEach(item => {
+                        this.docks.push(item.text)
+                    })
+                }
+			}).catch(error => {
+
+			})
+
+		    this.list_type = 'table'
+			this.list_ops = {
+		        url: '/list',
+				params: {
+		            index: 1,
+					size: 10
+				},
+                isPage: true,
+			}
+			this.list_cols = [
+				{
+				    name: 'id',
+					text: '字段1',
+                    hide: true
+				},{
+                    name: 'name',
+                    text: '字段2'
+				},{
+                    name: 'password',
+                    text: '字段3',
+				},{
+                    name: '$operate',
+                    text: '操作',
+					operate: ['remove', 'edit']
+				}
+			]
 		},
 		components: {
-            list
+            list, dock, logo, user, nvg
 		}
 	}
 </script>

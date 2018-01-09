@@ -1,0 +1,57 @@
+{
+    "list": {
+        "code": "0",
+        "error": "success",
+        "data": [
+            {
+                "id": "1",
+                "name": "user1",
+                "password": "password1"
+            },
+            {
+                "id": "2",
+                "name": "user2",
+                "password": "password2"
+            },
+            {
+                "id": "3",
+                "name": "user3",
+                "password": "password3"
+            }
+        ],
+        "total": "3",
+        "pages": "1",
+        "index": "1",
+        "size": "10"
+    },
+    "menu": {
+        "code": "0",
+        "error": "success",
+        "data": [
+            {
+                "text": "nav-main-1",
+                "sub": {}
+            },
+            {
+                "text": "nav-main-2",
+                "sub": {}
+            },
+            {
+                "text": "nav-main-3",
+                "sub": {}
+            },
+            {
+                "text": "nav-main-4",
+                "sub": {}
+            },
+            {
+                "text": "nav-main-5",
+                "sub": {}
+            },
+            {
+                "text": "nav-main-6",
+                "sub": {}
+            }
+        ]
+    }
+}

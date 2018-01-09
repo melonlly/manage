@@ -1,0 +1,28 @@
+.dock {
+  width: 100%;
+  height: 100%;
+}
+.dock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transform: scaleY(0.85) perspective(100px) rotateX(5deg);
+  transform-origin: bottom;
+  border-radius: 10px;
+  background-color: rgba(192,192,192,0.5);
+}
+.dock ul {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.dock ul li {
+  margin: 0 2%;
+  height: 100%;
+  line-height: 100%;
+  background-color: rgba(192,192,192,0.5);
+}

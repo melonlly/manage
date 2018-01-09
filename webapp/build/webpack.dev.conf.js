@@ -23,13 +23,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
     // these devServer options should be customized in /config/index.js
     devServer: {
-        clientLogLevel: 'warning',
-        historyApiFallback: true,
-        hot: true,
+        clientLogLevel: 'warning', // 日志级别
+        historyApiFallback: true, // 使用的是HTML5 History Api，任意的跳转或404响应可以指向 index.html 页面
+        hot: true, // 启动webpack热部署
         compress: true,
         host: HOST || config.dev.host,
         port: PORT || config.dev.port,
-        open: config.dev.autoOpenBrowser,
+        open: config.dev.autoOpenBrowser, // 自动打开浏览器
         overlay: config.dev.errorOverlay
             ? {warnings: false, errors: true}
             : false,

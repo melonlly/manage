@@ -1,0 +1,6 @@
+.user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #00bfff;
+}

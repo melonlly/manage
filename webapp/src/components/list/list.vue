@@ -36,7 +36,7 @@
 							<span>...</span>
 						</template>
 						<template v-else-if="pages - index >= 5">
-							<em @click="toPage(i)" v-for="i in [index - 1,index,index + 1]" :class="{active: index === i}">{{i}}</em>
+							<em @click="toPage(i)" v-for="i in [index - 2,index - 1,index]" :class="{active: index === i}">{{i}}</em>
 							<span>...</span>
 						</template>
 						<template v-else>
@@ -66,8 +66,8 @@
 			    url: this.options.url, // 请求链接
                 params: this.options.params, // 请求参数
                 isPage: this.options.isPage, // 是否分页
-                total: 0, // 总行数
-                pages: 0, // 总页数
+                total: "", // 总行数
+                pages: "", // 总页数
 				index: this.options.params.index, // 当前页码
 				size: this.options.params.size, // 每页大小
                 sizes: [{text: 10}, {text: 20}, {text: 30}],
@@ -111,19 +111,22 @@
 			load () {
                 this.$emit('before')
                 this.$http.post(this.url, this.params).then(res => {
-                    console.log(res)
-                    if(res.code === this.ERR_OK){
-                        this.data = res.data
+                    if(res.data.code === this.ERR_OK){
+                        this.data = res.data.data
                         if(this.data){
                             this.data = this.$emit('filter', this.data)
                             this.data = this.$parent.data
+							this.total = parseInt(res.data.total)
+							this.pages = parseInt(res.data.pages)
+                            this.index = parseInt(res.data.index)
+                            this.size = parseInt(res.data.size)
                         }else{
                             this.no_data = true
 						}
                     }
                     this.$emit('after', res)
                 }).catch(error => {
-                    alert('请求异常')
+                    console.log(error)
                 })
 			}
 		},
