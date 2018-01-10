@@ -2,9 +2,15 @@
 
 	<div class="nvg">
 		<ul>
-			<li class="center" :style="{width: 100 / nvgs.length + '%'}" v-for="nvg in nvgs">
+			<li class="center" @mouseover="onNav(index)" :style="{width: 100 / nvgs.length + '%'}" v-for="(nvg, index) in nvgs">
 				<a>{{nvg.text}}</a>
-
+				<div class="sub" v-if="nvg.sub">
+					<ul>
+						<li class="center" v-for="sub in nvg.sub">
+							<a>{{sub.text}}</a>
+						</li>
+					</ul>
+				</div>
 			</li>
 		</ul>
 	</div>
@@ -16,10 +22,14 @@
         props: ['nvgs'],
         name: 'nvg',
         data () {
-            return {}
+            return {
+                _index: null
+			}
         },
         methods: {
-            
+            onNav (index) {
+                this._index = index
+			}
         },
         created () {
             

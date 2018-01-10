@@ -8,6 +8,7 @@
 }
 .nvg ul li {
   position: relative;
+  flex-direction: column;
   height: 100%;
   background-color: #222d32;
 }
@@ -22,4 +23,31 @@
 .nvg ul li a {
   color: #fff;
   cursor: pointer;
+}
+.nvg ul li .sub {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+.nvg ul li .sub ul {
+  flex-direction: column;
+  background-color: #1a2226;
+}
+.nvg ul li .sub ul li {
+  position: relative;
+  align-items: flex-start;
+  padding-left: 10px;
+  height: 30px;
+}
+.nvg ul li .sub ul li:hover::before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-left: 2px solid #fff;
+  border-top: none;
+  content: '';
+}
+.nvg ul li .sub ul li a {
+  color: #fff;
 }

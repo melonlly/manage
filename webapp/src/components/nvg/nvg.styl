@@ -6,6 +6,7 @@
         height: 100%
         li
             position: relative
+            flex-direction: column
             height: 100%
             background-color: rgb(34, 45, 50)
             &:hover::before
@@ -18,3 +19,25 @@
             a
                 color: #ffffff
                 cursor: pointer
+            .sub
+                display: none
+                position: absolute
+                top: 100%
+                width: 100%
+                ul
+                    flex-direction: column
+                    background-color: rgb(26, 34, 38)
+                    li
+                        position: relative
+                        align-items: flex-start
+                        padding-left: 10px
+                        height: 30px
+                        &:hover::before
+                            position: absolute
+                            left: 0
+                            bottom: 0
+                            border-left: 2px solid #ffffff
+                            border-top: none
+                            content: ''
+                        a
+                            color: #ffffff
