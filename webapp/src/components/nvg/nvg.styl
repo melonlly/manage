@@ -1,8 +1,20 @@
 .nvg
-    background-color: #87CEFA
+    background-color: rgb(26, 34, 38)
     ul
         display: flex
+        justify-content: center
         height: 100%
         li
+            position: relative
             height: 100%
-            background-color: #87CEFA
+            background-color: rgb(34, 45, 50)
+            &:hover::before
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                border-top: 2px solid #ffffff
+                content: ''
+            a
+                color: #ffffff
+                cursor: pointer

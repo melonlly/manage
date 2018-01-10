@@ -1,6 +1,6 @@
 <template>
 
-	<div class="user">
+	<div class="user center">
 		user
 	</div>
 

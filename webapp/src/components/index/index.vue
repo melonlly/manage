@@ -4,18 +4,18 @@
 
 		<div class="header">
 			<logo></logo>
-			<nvg></nvg>
+			<nvg :nvgs="nvgs" v-if="nvgs"></nvg>
 			<user></user>
 		</div>
 
 		<div class="main">
 			<div class="content">
-				<list :type="list_type" :options="list_ops" :columns="list_cols" @filter="filter" @before="before" @after="after"></list>
+				<list :options="list_ops" :columns="list_cols" @filter="filter" @before="before" @after="after"></list>
 			</div>
 		</div>
 
 		<div class="footer">
-			<dock :docks="docks"></dock>
+			<dock :docks="docks" @select="selectDock" v-if="docks"></dock>
 		</div>
 
 	</div>
@@ -33,8 +33,8 @@
 		name: 'index',
 		data () {
 			return {
-                menu: [],
-			    docks: []
+			    docks: null,
+				nvgs: null
 			}
 		},
 		methods: {
@@ -48,21 +48,20 @@
 				})
                 this.data = data
                 return data
+			},
+			// 选择一级菜单
+            selectDock (dock) {
+				this.nvgs = dock.sub
 			}
 		},
 		created () {
 		    this.$http.post('/menu', {}).then(res => {
-                if(res.data.code === this.ERR_OK){
-                    this.menu = res.data.data
-					this.menu.forEach(item => {
-                        this.docks.push(item.text)
-                    })
-                }
+                this.$menu(res.data.data)
+                this.docks = this.menu
 			}).catch(error => {
-
+                console.log(error)
 			})
 
-		    this.list_type = 'table'
 			this.list_ops = {
 		        url: '/list',
 				params: {

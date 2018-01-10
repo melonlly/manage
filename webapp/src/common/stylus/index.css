@@ -15,3 +15,8 @@ html {
   clear: both;
   visibility: hidden;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,10 +2,10 @@
 
 	<div class="nvg">
 		<ul>
-			<li>nav-sub-1</li>
-			<li>nav-sub-2</li>
-			<li>nav-sub-3</li>
-			<li>nav-sub-4</li>
+			<li class="center" :style="{width: 100 / nvgs.length + '%'}" v-for="nvg in nvgs">
+				<a>{{nvg.text}}</a>
+
+			</li>
 		</ul>
 	</div>
 
@@ -13,6 +13,7 @@
 
 <script type="text/ecmascript-6">
     export default {
+        props: ['nvgs'],
         name: 'nvg',
         data () {
             return {}

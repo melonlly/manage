@@ -58,7 +58,7 @@
 }
 .drop-enter-active,
 .drop-leave-active {
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   transform-origin: 50% 0;
   transform: scaleY(1);
 }

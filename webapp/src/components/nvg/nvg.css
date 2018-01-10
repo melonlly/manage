@@ -1,11 +1,25 @@
 .nvg {
-  background-color: #87cefa;
+  background-color: #1a2226;
 }
 .nvg ul {
   display: flex;
+  justify-content: center;
   height: 100%;
 }
 .nvg ul li {
+  position: relative;
   height: 100%;
-  background-color: #87cefa;
+  background-color: #222d32;
+}
+.nvg ul li:hover::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid #fff;
+  content: '';
+}
+.nvg ul li a {
+  color: #fff;
+  cursor: pointer;
 }

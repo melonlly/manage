@@ -59,7 +59,18 @@
 	import drop from 'components/drop/drop'
 
 	export default {
-	    props: ['type', 'options', 'columns'],
+	    props: {
+	        type: {
+	            type: String,
+				default: 'table'
+			},
+			options: {
+	            type: Object
+			},
+			columns: {
+				type: Array
+			}
+		},
 		name: 'list',
 		data () {
 			return {
@@ -111,18 +122,16 @@
 			load () {
                 this.$emit('before')
                 this.$http.post(this.url, this.params).then(res => {
-                    if(res.data.code === this.ERR_OK){
-                        this.data = res.data.data
-                        if(this.data){
-                            this.data = this.$emit('filter', this.data)
-                            this.data = this.$parent.data
-							this.total = parseInt(res.data.total)
-							this.pages = parseInt(res.data.pages)
-                            this.index = parseInt(res.data.index)
-                            this.size = parseInt(res.data.size)
-                        }else{
-                            this.no_data = true
-						}
+                    this.data = res.data.data
+                    if(this.data){
+                        this.data = this.$emit('filter', this.data)
+                        this.data = this.$parent.data
+                        this.total = parseInt(res.data.total)
+                        this.pages = parseInt(res.data.pages)
+                        this.index = parseInt(res.data.index)
+                        this.size = parseInt(res.data.size)
+                    }else{
+                        this.no_data = true
                     }
                     this.$emit('after', res)
                 }).catch(error => {

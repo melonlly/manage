@@ -1,6 +1,8 @@
 require('es6-promise').polyfill() // 支持promise
 import axios from 'axios'
 
+const ERR_OK = "0"
+
 const Axios = axios.create({
     baseURL: '/api',
     timeout: 20000
@@ -33,7 +35,11 @@ Axios.interceptors.response.use(res => {
     if (res.status !== 200) {
         return Promise.reject(res)
     }
-    return res
+    if(res.data.code === ERR_OK){
+        return res
+    }else{
+        alert(res.data.error)
+    }
 }, error => {
     const code = error.response.status
     switch (code) {
@@ -51,13 +57,21 @@ Axios.interceptors.response.use(res => {
 
 export default {
     install: (Vue, options) => {
+        console.log(options)
+
         // 成功
-        Vue.prototype.ERR_OK = '0'
+        Vue.prototype.ERR_OK = ERR_OK
 
         // 计算页面高度
         Vue.prototype.$height = () => window.innerHeight + "px"
 
         // axios
         Vue.prototype.$http = Axios
+
+        // 菜单目录
+        Vue.prototype.menu = []
+
+        // 获取或赋值菜单目录
+        Vue.prototype.$menu = menu => menu ? Vue.prototype.menu = menu : Vue.prototype.menu
     }
 }
