@@ -1,5 +1,4 @@
 .nvg
-    background-color: rgb(26, 34, 38)
     ul
         display: flex
         justify-content: center
@@ -8,7 +7,7 @@
             position: relative
             flex-direction: column
             height: 100%
-            background-color: rgb(34, 45, 50)
+            cursor: pointer
             &:hover::before
                 position: absolute
                 top: 0
@@ -16,22 +15,29 @@
                 width: 100%
                 border-top: 2px solid #ffffff
                 content: ''
-            a
+            .text
+                position: relative
+                display: block
+                z-index: 100
+                text-align: center
+                width: 100%
                 color: #ffffff
-                cursor: pointer
+                background-color: rgb(26, 34, 38)
             .sub
-                display: none
                 position: absolute
+                z-index: 50
                 top: 100%
                 width: 100%
+                transform: margin-top
+                transition: margin-top .5s ease-in
                 ul
                     flex-direction: column
-                    background-color: rgb(26, 34, 38)
+                    background-color: rgb(34, 45, 50)
                     li
                         position: relative
                         align-items: flex-start
                         padding-left: 10px
-                        height: 30px
+                        height: 40px
                         &:hover::before
                             position: absolute
                             left: 0

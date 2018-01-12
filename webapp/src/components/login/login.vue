@@ -54,6 +54,6 @@
 	}
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 	@import "login.styl";
 </style>
