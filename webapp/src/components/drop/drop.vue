@@ -1,6 +1,8 @@
 <template>
 	<div class="drop" :style="{ width: width }" @mouseleave="leave">
-		<strong @click="showUl">{{text}}<i :class="{ close: show }"></i></strong>
+		<div class="input" @click="showUl">
+			<input type="text" :value="text" :readonly="readonly"><i :class="{ close: show }"></i>
+		</div>
 		<transition name="drop">
 			<ul class="drop_ul" v-show="show">
 				<li @click="select(item)" v-for="item in entries"><a>{{item.text}}</a></li>
@@ -11,7 +13,7 @@
 
 <script type="text/ecmascript-6">
     export default {
-        props: ['entries', 'width', 'default'],
+        props: ['entries', 'width', 'default', 'readonly'],
         name: 'drop',
         data () {
             return {
