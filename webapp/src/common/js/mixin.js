@@ -10,7 +10,7 @@ const Axios = axios.create({
 
 // 请求拦截器
 Axios.interceptors.request.use(req => {
-    console.log(req)
+    // console.log(req)
     if (req.method === 'post') {
         // json 转 FormData
         // const formData = new FormData()
@@ -31,7 +31,7 @@ Axios.interceptors.request.use(req => {
 
 // 响应拦截器
 Axios.interceptors.response.use(res => {
-    console.log(res)
+    // console.log(res)
     if (res.status !== 200) {
         return Promise.reject(res)
     }
@@ -57,8 +57,6 @@ Axios.interceptors.response.use(res => {
 
 export default {
     install: (Vue, options) => {
-        console.log(options)
-
         // 成功
         Vue.prototype.ERR_OK = ERR_OK
 

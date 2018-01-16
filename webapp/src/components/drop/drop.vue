@@ -13,13 +13,13 @@
 
 <script type="text/ecmascript-6">
     export default {
-        props: ['entries', 'width', 'default', 'readonly'],
+        props: ['feild', 'entries', 'width', 'default', 'value', 'readonly'],
         name: 'drop',
         data () {
             return {
                 show: false,
 				text: this.default ? this.default.text : '',
-				value: this.default ? (this.default.value || this.default.text) : ''
+				_value: this.value || this.default ? (this.default.value || this.default.text) : ''
 			}
         },
         methods: {
@@ -33,11 +33,25 @@
 			},
             select (item) {
                 this.text = item.text
-				this.value = item.value || item.text
+				this._value = item.value || item.text
 				this.show = false
-				this.$emit('selected', this.value)
+//                this.$parent[this.feild] = this.value
+				this.$emit('selected', {
+                    name: this.feild,
+					value: this._value
+				})
+			},
+			// 重置（置为空或置为默认值）
+			reset () {
+                this.text = this.default ? this.default.text : ''
+				this._value = this.default ? (this.default.value || this.default.text) : ''
 			}
         },
+//		watch : {
+//            _value () {
+//
+//			}
+//		},
         created () {
 
         },

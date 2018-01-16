@@ -2,7 +2,7 @@
 
 	<div class="nvg">
 		<ul>
-			<li class="center" @mouseover.stop="onNav(index)" @mouseleave="outNav(index)" :style="{width: 100 / nvgs.length + '%'}" v-for="(nvg, index) in nvgs">
+			<li class="nav center" @mouseover.stop="onNav(index)" @mouseleave="outNav(index)" :style="{width: 100 / nvgs.length + '%'}" v-for="(nvg, index) in nvgs">
 				<a class="text">{{nvg.text}}</a>
 				<div class="sub" v-if="nvg.sub">
 					<ul>

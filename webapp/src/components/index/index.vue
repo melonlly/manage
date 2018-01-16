@@ -10,7 +10,7 @@
 
 		<div class="main">
 			<div class="content">
-				<VForm :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
+				<VForm :def="def" :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
 				<list :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
 			</div>
 		</div>
@@ -40,8 +40,8 @@
 			}
 		},
 		methods: {
-            before () { console.log('before') },
-			after (res) { console.log(res) },
+            before () {},
+			after (res) {},
 			// 过滤处理数据集
             filter (data) {
                 const _this = this
@@ -109,6 +109,7 @@
 				}
 			]
 
+			this.def = this.options.params
 			this.feilds = [
 				{
 				    name: 'name',
@@ -117,9 +118,20 @@
 				},{
                     name: 'type',
                     text: '类型',
-//                    component: 'drop',
-                    default: '1'
-				}
+                    component: 'drop',
+                    entries: [{text: '类型1', value: '1'}, {text: '类型2', value: '2'}, {text: '类型3', value: '3'}],
+                    width: '100px',
+                    default: {text: '类型1', value: '1'},
+                    readonly: true
+				},{
+                    name: 'password',
+                    text: '密码',
+                    component: 'drop',
+                    entries: [{text: '密码1', value: 'password1'}, {text: '密码2', value: '2'}, {text: '密码1', value: 'password1'}],
+                    width: '100px',
+                    default: {text: '密码1', value: 'password1'},
+                    readonly: true
+                }
 			]
 			this.operates = [
 			    {

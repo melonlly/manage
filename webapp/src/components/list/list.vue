@@ -22,7 +22,7 @@
 		<div class="pages" v-if="isPage">
 			<div class="num">
 				<span>每页显示</span>
-				<drop :entries="sizes" :width="'100px'" :default="sizes[0]" :readonly="true" @selected="setSize"></drop>
+				<drop :feild="'size'" :entries="sizes" :width="'100px'" :default="sizes[0]" :readonly="true" @selected="setSize"></drop>
 			</div>
 			<div class="stat">
 				<span class="indexs">
@@ -88,8 +88,8 @@
 		},
 		methods: {
 	        // 设置每页大小
-			setSize (value) {
-			    this.size = value
+			setSize (size) {
+				this.params[size.name] = size.value
                 this.load()
 			},
 			// 是否有操作项

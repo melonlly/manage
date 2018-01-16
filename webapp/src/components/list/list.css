@@ -51,6 +51,10 @@
   font-size: 16px;
   color: #040404;
 }
+.main .pages .num .drop {
+  float: left;
+  margin-left: 20px;
+}
 .main .pages .stat {
   float: right;
 }
