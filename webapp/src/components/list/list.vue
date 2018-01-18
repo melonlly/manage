@@ -22,7 +22,7 @@
 		<div class="pages" v-if="isPage">
 			<div class="num">
 				<span>每页显示</span>
-				<drop :feild="'size'" :entries="sizes" :width="'100px'" :default="sizes[0]" :readonly="true" @selected="setSize"></drop>
+				<drop :feild="'size'" :entries="sizes" :width="'100px'" :default="'10'" :readonly="true" @setValue="setSize"></drop>
 			</div>
 			<div class="stat">
 				<span class="indexs">

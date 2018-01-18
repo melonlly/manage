@@ -1,7 +1,7 @@
 <template>
 	<div class="drop" :style="{ width: width }" @mouseleave="leave">
 		<div class="input" @click="showUl">
-			<input type="text" :value="text" :readonly="readonly"><i :class="{ close: show }"></i>
+			<input type="text" :value="current.text" :readonly="readonly"><i :class="{ close: show }"></i>
 		</div>
 		<transition name="drop">
 			<ul class="drop_ul" v-show="show">
@@ -18,8 +18,10 @@
         data () {
             return {
                 show: false,
-				text: this.default ? this.default.text : '',
-				_value: this.value || this.default ? (this.default.value || this.default.text) : ''
+				current: {
+                    text: '',
+                    _value: ''
+				}
 			}
         },
         methods: {
@@ -32,28 +34,28 @@
                 this.show = false
 			},
             select (item) {
-                this.text = item.text
-				this._value = item.value || item.text
+                this.current = {
+                    text: item.text,
+                    value: item.value || item.text
+				}
 				this.show = false
 //                this.$parent[this.feild] = this.value
-				this.$emit('selected', {
+				this.$emit('setValue', {
                     name: this.feild,
-					value: this._value
+					value: this.current.value
 				})
 			},
 			// 重置（置为空或置为默认值）
 			reset () {
-                this.text = this.default ? this.default.text : ''
-				this._value = this.default ? (this.default.value || this.default.text) : ''
+				let item = this.entries.find(item => item.value === this.default)
+                this.current = {
+                    text: item ? item.text : this.default || '',
+                    value: this.value || this.default || ''
+                }
 			}
         },
-//		watch : {
-//            _value () {
-//
-//			}
-//		},
         created () {
-
+            this.reset()
         },
         components: {
             

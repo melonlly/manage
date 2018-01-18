@@ -11,7 +11,7 @@
 		<div class="main">
 			<div class="content">
 				<VForm :def="def" :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
-				<list :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
+				<list ref="list" :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
 			</div>
 		</div>
 
@@ -56,8 +56,9 @@
 				this.nvgs = dock.sub
 			},
 			// list查询
-            search () {
-                console.log('search')
+            search (params) {
+                this.$refs.list.params = params
+				this.$refs.list.load()
 			},
 			// 文件上传
             file () {
@@ -114,22 +115,25 @@
 				{
 				    name: 'name',
 					text: '名称',
-					default: '111'
+					default: '111',
+					value: ''
 				},{
                     name: 'type',
                     text: '类型',
                     component: 'drop',
                     entries: [{text: '类型1', value: '1'}, {text: '类型2', value: '2'}, {text: '类型3', value: '3'}],
                     width: '100px',
-                    default: {text: '类型1', value: '1'},
+                    default: '1',
+                	value: '',
                     readonly: true
 				},{
                     name: 'password',
                     text: '密码',
                     component: 'drop',
-                    entries: [{text: '密码1', value: 'password1'}, {text: '密码2', value: '2'}, {text: '密码1', value: 'password1'}],
+                    entries: [{text: '密码1', value: 'password1'}, {text: '密码2', value: 'password2'}],
                     width: '100px',
-                    default: {text: '密码1', value: 'password1'},
+                    default: 'password1',
+                    value: '',
                     readonly: true
                 }
 			]
@@ -137,7 +141,8 @@
 			    {
 			        name: '查询',
 			        type: 'search',
-					func: 'search'
+					func: 'search',
+					auto: true
 				},{
                     name: '重置',
 		        	type: 'reset'

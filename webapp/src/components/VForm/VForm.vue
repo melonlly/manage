@@ -17,7 +17,7 @@
 				</div>
 				<div v-else>
 					<span>{{feild.text}}:</span>
-					<input type="text" :value="feild.value || feild.default || ''">
+					<input type="text" :value="feild.value" @input="setValue(feild, $event)">
 				</div>
 			</template>
 		</div>
@@ -38,33 +38,54 @@
         name: 'VForm',
         data () {
             return {
-                param: this.def || {},
-				_feilds: this.feilds,
-				_operates: this.operates
+                params: this.def || {}
 			}
         },
         methods: {
             // 字段赋值
-            setValue (feild) {
-                this.param[feild.name] = feild.value
-
+            setValue (feild, e) {
+                let _this = this
+				_this._feilds.forEach(_feild => {
+                    if(_feild.name === feild.name){
+                        if(_feild.component){
+                            _this.params[feild.name] = feild.value
+                        }else{
+                            _this.params[feild.name] = e.target.value
+                            _feild.value = e.target.value
+                        }
+                    }
+				})
+                _this._operates.forEach(operate => {
+				    if(operate.func === 'search' && operate.auto){
+                        _this.$emit('search', _this.params)
+					}
+				})
 			},
 			// 操作按钮事件
             doIt (operate) {
+                let _this = this
 				if(operate.func && operate.type !== 'reset'){
-                    this.$emit(operate.func, {}) // 调用按钮对应的事件
+                    _this.$emit(operate.func, _this.params) // 调用按钮对应的事件
 				}else{
 				    // 表单重置，分别调用表单组件的reset
 				    if(operate.type === 'reset'){
-						this._feilds.forEach(feild => {
-                            console.log(feild.value, feild.default)
-                            feild.value = feild.default || ''
+                        _this._feilds.forEach(feild => {
+							if(!feild.component){
+                                feild.value = feild.default || ''
+							}
+                        })
+                        _this.$children.forEach(cpt => {
+                            cpt.reset()
                         })
 					}
 				}
 			}
         },
         created () {
+            this.feilds.forEach(feild => {
+                feild.value = feild.value || feild.default || ''
+                this.params[feild.name] = feild.value
+            })
             this._feilds = this.feilds
 			this._operates = this.operates
         },
