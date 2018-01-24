@@ -83,7 +83,7 @@
   padding: 0 20px;
   font-size: 16px;
   color: #040404;
-  line-height: 34px;
+  line-height: 36px;
   border: 1px solid #fff;
   font-style: normal;
   border-radius: 20px;
@@ -109,7 +109,7 @@
   text-align: center;
   width: 60px;
   height: 36px;
-  line-height: 34px;
+  line-height: 36px;
   border: 1px solid #e5e5e5;
   border-radius: 20px;
   -moz-appearance: textfield /* Firefox */;
@@ -123,7 +123,7 @@
   margin-left: 20px;
   width: 60px;
   height: 36px;
-  line-height: 34px;
+  line-height: 36px;
   border: 1px solid #e5e5e5;
   border-radius: 20px;
   text-align: center;

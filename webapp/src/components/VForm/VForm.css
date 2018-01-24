@@ -1,3 +1,61 @@
 .VForm {
+  padding: 20px 30px;
+}
+.VForm .feilds {
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
+  height: 70%;
+}
+.VForm .feilds .feild-cpt,
+.VForm .feilds .feild-input {
+  justify-content: flex-start;
+  margin: 0 20px;
+  width: 200px;
+  height: 50px;
+}
+.VForm .feilds .feild-cpt .text,
+.VForm .feilds .feild-input .text {
+  display: inline-block;
+  width: 30%;
+  line-height: 50px;
+}
+.VForm .feilds .feild-cpt .cpt,
+.VForm .feilds .feild-input .cpt,
+.VForm .feilds .feild-cpt .input,
+.VForm .feilds .feild-input .input {
+  width: 70%;
+}
+.VForm .feilds .feild-cpt .input,
+.VForm .feilds .feild-input .input {
+  text-align: center;
+  height: 36px;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+}
+.VForm .operates {
+  width: 100%;
+  height: 30%;
+}
+.VForm .operates .operate {
+  display: inline-block;
+  float: right;
+  margin-left: 10px;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.VForm .operates .operate:hover {
+  border: 1px solid #57aef4;
+}
+.VForm .operates .operate:hover > a {
+  color: #57aef4;
+}
+.VForm .operates .operate a {
+  line-height: 36px;
+  font-size: 16px;
+  color: #040404;
 }

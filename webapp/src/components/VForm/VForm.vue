@@ -1,11 +1,11 @@
 <template>
 
 	<div class="VForm">
-		<div class="feild">
+		<div class="feilds">
 			<template v-for="feild in _feilds">
-				<div v-if="feild.component">
-					<span>{{feild.text}}:</span>
-					<component :is="feild.component"
+				<div class="feild-cpt center" v-if="feild.component">
+					<span class="text">{{feild.text}}:</span>
+					<component class="cpt" :is="feild.component"
 							   :feild="feild.name"
 							   :entries="feild.entries"
 							   :width="feild.width"
@@ -13,18 +13,21 @@
 							   :value="feild.value"
 							   :readonly="feild.readonly"
 							   @setValue="setValue"
+
+							   :date="startTime"
+							   :limit="limit"
 					></component>
 				</div>
-				<div v-else>
-					<span>{{feild.text}}:</span>
-					<input type="text" :value="feild.value" @input="setValue(feild, $event)">
+				<div class="feild-input center" v-else>
+					<span class="text">{{feild.text}}:</span>
+					<input class="input" type="text" :value="feild.value" @input="setValue(feild, $event)">
 				</div>
 			</template>
 		</div>
-		<div class="operate">
-			<template v-for="operate in _operates">
-				<button @click="doIt(operate)" :class="operate.type">{{operate.name}}</button>
-			</template>
+		<div class="operates">
+			<div class="operate" v-for="operate in _operates">
+				<a @click.prevent="doIt(operate)" :class="operate.type">{{operate.name}}</a>
+			</div>
 		</div>
 	</div>
 
@@ -32,13 +35,16 @@
 
 <script type="text/ecmascript-6">
 	import drop from 'components/drop/drop'
+	import datepicker from 'components/datepicker/datepicker'
 
     export default {
         props: ['def', 'feilds', 'operates'],
         name: 'VForm',
         data () {
             return {
-                params: this.def || {}
+                params: this.def || {},
+                startTime: {},
+				limit: []
 			}
         },
         methods: {
@@ -90,7 +96,7 @@
 			this._operates = this.operates
         },
         components: {
-            drop
+            drop, datepicker
         }
     }
 </script>

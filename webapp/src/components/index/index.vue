@@ -10,8 +10,8 @@
 
 		<div class="main">
 			<div class="content">
-				<VForm :def="def" :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
-				<list ref="list" :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
+				<VForm height="30%" :def="def" :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
+				<list height="70%" ref="list" :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
 			</div>
 		</div>
 
@@ -115,27 +115,26 @@
 				{
 				    name: 'name',
 					text: '名称',
-					default: '111',
-					value: ''
+					default: '111'
 				},{
                     name: 'type',
                     text: '类型',
                     component: 'drop',
                     entries: [{text: '类型1', value: '1'}, {text: '类型2', value: '2'}, {text: '类型3', value: '3'}],
-                    width: '100px',
                     default: '1',
-                	value: '',
                     readonly: true
 				},{
                     name: 'password',
                     text: '密码',
                     component: 'drop',
                     entries: [{text: '密码1', value: 'password1'}, {text: '密码2', value: 'password2'}],
-                    width: '100px',
                     default: 'password1',
-                    value: '',
                     readonly: true
-                }
+                },{
+		        	name: 'date',
+					text: '日期',
+					component: 'datepicker'
+				}
 			]
 			this.operates = [
 			    {
