@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="footer">
-			<dock :docks="docks" @select="selectDock" v-if="docks"></dock>
+			<dock ref="dock" :docks="docks" @select="selectDock" v-if="docks"></dock>
 		</div>
 
 	</div>
@@ -36,10 +36,29 @@
 		data () {
 			return {
 			    docks: null,
-				nvgs: null
+				nvgs: null,
+				scroll_top_before: 0, // 滚动条滚动前scrollTop
+				scroll_top_now: 0 // 滚动条滚动后scrollTop
 			}
 		},
 		methods: {
+		    // 滚动事件
+            scroll (e) {
+                const _this = this
+				this.scroll_top_now = window.scrollY
+				// 向下滚动
+				if(this.scroll_top_now > this.scroll_top_before){
+                    window.setTimeout(() => {
+                        const dock = _this.$refs.dock
+						if(!dock.showTip){
+                            dock.hideDock()
+						}
+					}, 100)
+				}else{ // 向上滚动
+
+				}
+				window.setTimeout(() => { this.scroll_top_before = this.scroll_top_now }, 0)
+			},
             before () {},
 			after (res) {},
 			// 过滤处理数据集
@@ -159,6 +178,9 @@
                     func: 'export'
 				}
 			]
+		},
+		mounted () {
+		    window.addEventListener('scroll', this.scroll)
 		},
 		components: {
             list, dock, logo, user, nvg, VForm

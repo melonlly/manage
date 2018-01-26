@@ -1,7 +1,17 @@
 .nvg ul {
   display: flex;
+  position: relative;
   justify-content: center;
   height: 100%;
+}
+.nvg ul .cursor {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  border-top: 2px solid $sub-color;
+  content: '';
+  transition: margin-left 0.2s ease-in-out;
 }
 .nvg ul li {
   position: relative;
@@ -9,49 +19,40 @@
   height: 100%;
   cursor: pointer;
 }
-.nvg ul li:hover::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-top: 2px solid #fff;
-  content: '';
-}
 .nvg ul li .text {
   position: relative;
   display: block;
   z-index: 100;
   text-align: center;
   width: 100%;
-  color: #fff;
-  background-color: #1a2226;
+  color: $nav-font-color;
+  background-color: $color;
 }
 .nvg ul li .sub {
   position: absolute;
   z-index: 50;
-  top: 100%;
   width: 100%;
-  transform: margin-top;
-  transition: margin-top 0.3s ease-in;
 }
-.nvg ul li .sub ul {
-  flex-direction: column;
-  background-color: #222d32;
+.nvg ul li .sub .sub-cursor {
+  position: absolute;
+  display: inline-block;
+  z-index: 51;
+  left: 0;
+  top: 0;
+  border-left: 2px solid $sub-color;
+  border-top: none;
+  content: '';
+  transition: margin-top 0.2s ease-in-out;
 }
-.nvg ul li .sub ul li {
+.nvg ul li .sub span {
   position: relative;
+  display: block;
   align-items: flex-start;
   padding-left: 10px;
   height: 40px;
+  line-height: 40px;
+  background-color: $color;
 }
-.nvg ul li .sub ul li:hover::before {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  border-left: 2px solid #fff;
-  border-top: none;
-  content: '';
-}
-.nvg ul li .sub ul li a {
-  color: #fff;
+.nvg ul li .sub span a {
+  color: $nav-font-color;
 }

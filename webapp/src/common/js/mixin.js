@@ -55,6 +55,36 @@ Axios.interceptors.response.use(res => {
     return Promise.reject(error.response.data)
 })
 
+// wave
+document.addEventListener('mousedown', e => {
+    console.log(e)
+    let target = e.target
+    let parent = target.parentNode
+    if(target.className.indexOf('wave') < 0){
+        if(parent.className.indexOf('wave') < 0){
+            return false
+        }else{
+            target = parent
+        }
+    }
+    const x = e.clientX
+    const y = e.clientY
+    const width = Vue.prototype.$getAttributes(target, 'width')
+    const height = Vue.prototype.$getAttributes(target, 'height')
+    const p_left = Vue.prototype.$getAttributes(target, 'offsetLeft')
+    const p_top = Vue.prototype.$getAttributes(target, 'offsetTop')
+    const left = x - p_left
+    const top = y - p_top
+    let div = document.createElement('div')
+    div.className = 'ripple'
+    div.style.left = left + 'px'
+    div.style.top = top + 'px'
+    target.appendChild(div)
+})
+document.addEventListener('mouseup', e => {
+    console.log(e)
+})
+
 export default {
     install: (Vue, options) => {
         // 成功
@@ -62,6 +92,14 @@ export default {
 
         // 计算页面高度
         Vue.prototype.$height = () => window.innerHeight + "px"
+
+        /**
+         * 获取元素属性（只读）
+         * @param ele       dom元素
+         * @param property  属性名
+         * @param pseudo    伪类名
+         */
+        Vue.prototype.$getAttributes = (ele, property, pseudo) => window.getComputedStyle(ele, pseudo).getPropertyValue(property).replace('px', '')
 
         // axios
         Vue.prototype.$http = Axios

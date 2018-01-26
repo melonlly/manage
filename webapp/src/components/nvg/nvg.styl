@@ -1,49 +1,52 @@
 .nvg
     ul
         display: flex
+        position: relative
         justify-content: center
         height: 100%
+        .cursor
+            position: absolute
+            z-index: 101
+            top: 0
+            left: 0
+            border-top: 2px solid $sub-color
+            content: ''
+            transition: margin-left .2s ease-in-out
         li
             position: relative
             flex-direction: column
             height: 100%
             cursor: pointer
-            &:hover::before
-                position: absolute
-                top: 0
-                left: 0
-                width: 100%
-                border-top: 2px solid #ffffff
-                content: ''
             .text
                 position: relative
                 display: block
                 z-index: 100
                 text-align: center
                 width: 100%
-                color: #ffffff
-                background-color: rgb(26, 34, 38)
+                color: $nav-font-color
+                background-color: $color
             .sub
                 position: absolute
                 z-index: 50
-                top: 100%
                 width: 100%
-                transform: margin-top
-                transition: margin-top .3s ease-in
-                ul
-                    flex-direction: column
-                    background-color: rgb(34, 45, 50)
-                    li
-                        position: relative
-                        align-items: flex-start
-                        padding-left: 10px
-                        height: 40px
-                        &:hover::before
-                            position: absolute
-                            left: 0
-                            bottom: 0
-                            border-left: 2px solid #ffffff
-                            border-top: none
-                            content: ''
-                        a
-                            color: #ffffff
+                $shadow()
+                .sub-cursor
+                    position: absolute
+                    display: inline-block
+                    z-index: 51
+                    left: 0
+                    top: 0
+                    border-left: 2px solid $sub-color
+                    border-top: none
+                    content: ''
+                    transition: margin-top .2s ease-in-out
+                span
+                    position: relative
+                    display: block
+                    align-items: flex-start
+                    padding-left: 10px
+                    height: 40px
+                    line-height: 40px
+                    background-color: $color
+                    a
+                        color: $nav-font-color

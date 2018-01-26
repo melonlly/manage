@@ -11,7 +11,7 @@
         width: 4%
         height: 20px
         cursor: pointer
-        color: rgba(192, 192, 192, .5)
+        color: $sub-color
     &::before
         content: ''
         position: absolute
@@ -23,17 +23,18 @@
         transform: scaleY(.85) perspective(100px) rotateX(5deg)
         transform-origin: bottom
         border-radius: 10px
-        background-color: rgba(192, 192, 192, .5)
+        background-color: $color
     ul
         display: flex
         justify-content: center
         height: 100%
         li
             margin: 0 2%
-            background-color: rgba(192, 192, 192, .5)
+            color: $nav-font-color
             cursor: pointer
+            $blur()
             &.active
-                background-color: greenyellow
+                $active()
 
 .tip-enter-active, .tip-leave-active
     transition: all .5s ease-in-out

@@ -1,3 +1,20 @@
+// 主色调
+$color = rgb(63, 81, 181)
+// 辅色
+$sub-color = rgb(255, 255, 255)
+// 导航文字颜色
+$nav-font-color = #ffffff
+
+// 阴影
+$shadow()
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, .5)
+// 激活状态
+$active()
+    opacity: 1
+// 未激活状态
+$blur()
+    opacity: .6
+
 body, html
     line-height: 1
     font-weight: 200
@@ -17,3 +34,14 @@ body, html
     display: flex
     justify-content: center
     align-items: center
+
+.wave
+    position: relative
+    overflow: hidden
+    user-select: none
+    cursor: pointer
+    &.ripple
+        position: absolute
+        height: 3px
+        width: 3px
+        background-color: rgba(0, 0, 0, .5)

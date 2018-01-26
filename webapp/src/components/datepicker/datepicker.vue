@@ -1,14 +1,18 @@
 <template>
 	<div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
 		<div class="datepickbox">
-			<input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="date.time" :required="required" @click="showCheck" @focus="showCheck" :style="option.inputStyle ? option.inputStyle : {}" :class="option.inputClass ? option.inputClass : {}" />
+			<input type="text" title="input date" class="cov-datepicker" readonly="readonly"
+				   :placeholder="option.placeholder" v-model="date.time" :required="required" @click="showCheck"
+				   @focus="showCheck" :style="option.inputStyle ? option.inputStyle : {}"
+				   :class="option.inputClass ? option.inputClass : {}"/>
 		</div>
-		<div class="datepicker-overlay" v-if="showInfo.check" @click="dismiss($event)" :style="{'background' : option.overlayOpacity? 'rgba(0,0,0,'+option.overlayOpacity+')' : 'rgba(0,0,0,0.5)'}">
+		<div class="datepicker-overlay" v-if="showInfo.check" @click="dismiss($event)"
+			 :style="{'background' : option.overlayOpacity? 'rgba(0,0,0,'+option.overlayOpacity+')' : 'rgba(0,0,0,0.5)'}">
 			<div class="cov-date-body" :style="{'background-color': option.color ? option.color.header : '#3f51b5'}">
 				<div class="cov-date-monthly">
 					<div class="cov-date-previous" @click="nextMonth('pre')">«</div>
 					<div class="cov-date-caption" :style="{'color': option.color ? option.color.headerText : '#fff'}">
-						<span @click="showYear"><small>{{checked.year}}</small></span>
+						<span @click="showYear"><small>{{checked.year}}</small>年</span>
 						<br>
 						<span @click="showMonth">{{displayInfo.month}}</span>
 					</div>
@@ -21,17 +25,25 @@
 								<li v-for="weekie in library.week">{{weekie}}</li>
 							</ul>
 						</div>
-						<div class="day" v-for="day,index in dayList" :key="index" @click="checkDay(day)" :class="{'checked':day.checked,'unavailable':day.unavailable,'passive-day': !(day.inMonth)}" :style="day.checked ? (option.color && option.color.checkedDay ? { background: option.color.checkedDay } : { background: '#F50057' }) : {}">{{day.value}}</div>
+						<div class="day" v-for="day,index in dayList" :key="index" @click="checkDay(day)"
+							 :class="{'checked':day.checked,'unavailable':day.unavailable,'passive-day': !(day.inMonth)}"
+							 :style="day.checked ? (option.color && option.color.checkedDay ? { background: option.color.checkedDay } : { background: '#F50057' }) : {}">
+							{{day.value}}
+						</div>
 					</div>
 				</div>
 				<div class="cov-date-box list-box" v-if="showInfo.year">
 					<div class="cov-picker-box date-list" id="yearList">
-						<div class="date-item" v-for="yearItem,index in library.year" :key="index" @click="setYear(yearItem)">{{yearItem}}</div>
+						<div class="date-item" v-for="yearItem,index in library.year" :key="index"
+							 @click="setYear(yearItem)">{{yearItem}}
+						</div>
 					</div>
 				</div>
 				<div class="cov-date-box list-box" v-if="showInfo.month">
 					<div class="cov-picker-box date-list">
-						<div class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</div>
+						<div class="date-item" v-for="monthItem,index in library.month" :key="index"
+							 @click="setMonth(monthItem)">{{monthItem}}
+						</div>
 					</div>
 				</div>
 				<div class="cov-date-box list-box" v-if="showInfo.hour">
@@ -40,12 +52,16 @@
 							<div class="hour-box">
 								<div class="mui-pciker-rule mui-pciker-rule-ft"></div>
 								<ul>
-									<li class="hour-item" v-for="hitem in hours" @click="setTime('hour', hitem, hours)" :class="{'active':hitem.checked}">{{hitem.value}}</li>
+									<li class="hour-item" v-for="hitem in hours" @click="setTime('hour', hitem, hours)"
+										:class="{'active':hitem.checked}">{{hitem.value}}
+									</li>
 								</ul>
 							</div>
 							<div class="min-box">
 								<div class="mui-pciker-rule mui-pciker-rule-ft"></div>
-								<div class="min-item" v-for="mitem in mins" @click="setTime('min',mitem, mins)" :class="{'active':mitem.checked}">{{mitem.value}}</div>
+								<div class="min-item" v-for="mitem in mins" @click="setTime('min',mitem, mins)"
+									 :class="{'active':mitem.checked}">{{mitem.value}}
+								</div>
 							</div>
 						</div>
 					</div>
@@ -75,8 +91,8 @@
                     return {
                         type: 'day',
                         SundayFirst: false,
-                        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-                        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        week: ['一', '二', '三', '四', '五', '六', '日'],
+                        month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
                         format: 'YYYY-MM-DD',
                         color: {
                             checked: '#F50057',
@@ -97,8 +113,8 @@
                         },
                         placeholder: 'when?',
                         buttons: {
-                            ok: 'OK',
-                            cancel: 'Cancel'
+                            ok: '确定',
+                            cancel: '取消'
                         },
                         overlayOpacity: 0.5,
                         dismissible: true
@@ -113,7 +129,7 @@
             }
         },
         data () {
-            function hours () {
+            function hours() {
                 let list = []
                 let hour = 24
                 while (hour > 0) {
@@ -125,7 +141,8 @@
                 }
                 return list
             }
-            function mins () {
+
+            function mins() {
                 let list = []
                 let min = 60
                 while (min > 0) {
@@ -137,6 +154,7 @@
                 }
                 return list
             }
+
             return {
                 hours: hours(),
                 mins: mins(),
@@ -277,7 +295,7 @@
                 return days
             },
             getLimitCondition (limit, day) {
-                let tmpMoment = moment(day.moment.year() + '-' + this.pad(day.moment.month()+1) + '-' + this.pad(day.value))
+                let tmpMoment = moment(day.moment.year() + '-' + this.pad(day.moment.month() + 1) + '-' + this.pad(day.value))
                 if (limit.from && !limit.to) {
                     return !tmpMoment.isAfter(limit.from)
                 } else if (!limit.from && limit.to) {

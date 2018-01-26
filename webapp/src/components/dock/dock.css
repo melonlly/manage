@@ -12,7 +12,7 @@
   width: 4%;
   height: 20px;
   cursor: pointer;
-  color: rgba(192,192,192,0.5);
+  color: $sub-color;
 }
 .dock::before {
   content: '';
@@ -25,7 +25,7 @@
   transform: scaleY(0.85) perspective(100px) rotateX(5deg);
   transform-origin: bottom;
   border-radius: 10px;
-  background-color: rgba(192,192,192,0.5);
+  background-color: $color;
 }
 .dock ul {
   display: flex;
@@ -34,11 +34,8 @@
 }
 .dock ul li {
   margin: 0 2%;
-  background-color: rgba(192,192,192,0.5);
+  color: $nav-font-color;
   cursor: pointer;
-}
-.dock ul li.active {
-  background-color: #adff2f;
 }
 .tip-enter-active,
 .tip-leave-active {

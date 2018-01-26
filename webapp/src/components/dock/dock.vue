@@ -28,19 +28,21 @@
         data () {
             return {
                 active: {}, // 当前选中dock
-                showTip: true // 小箭头是否显示
+                showTip: false // 小箭头是否显示
 			}
         },
         methods: {
             select (dock) {
                 this.active = dock
                 this.$emit('select', dock)
-                document.getElementsByClassName('dock')[0].style.marginTop = document.getElementsByClassName('dock')[0].clientHeight + 'px'
-                this.showTip = true
             },
             showDock () {
                 this.showTip = false
                 document.getElementsByClassName('dock')[0].style.marginTop = ''
+			},
+			hideDock () {
+                document.getElementsByClassName('dock')[0].style.marginTop = this.$getAttributes(document.getElementsByClassName('dock')[0], 'height') + 'px'
+                this.showTip = true
 			}
         },
         created () {
@@ -56,5 +58,6 @@
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus" scoped>
+	@import "../../common/stylus/base.styl";
 	@import "dock.styl";
 </style>
