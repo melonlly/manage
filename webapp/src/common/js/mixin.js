@@ -55,9 +55,10 @@ Axios.interceptors.response.use(res => {
     return Promise.reject(error.response.data)
 })
 
+const getAttributes = (ele, property, pseudo) => window.getComputedStyle(ele, pseudo).getPropertyValue(property).replace('px', '')
+
 // wave
 document.addEventListener('mousedown', e => {
-    console.log(e)
     let target = e.target
     let parent = target.parentNode
     if(target.className.indexOf('wave') < 0){
@@ -69,21 +70,50 @@ document.addEventListener('mousedown', e => {
     }
     const x = e.clientX
     const y = e.clientY
-    const width = Vue.prototype.$getAttributes(target, 'width')
-    const height = Vue.prototype.$getAttributes(target, 'height')
-    const p_left = Vue.prototype.$getAttributes(target, 'offsetLeft')
-    const p_top = Vue.prototype.$getAttributes(target, 'offsetTop')
-    const left = x - p_left
-    const top = y - p_top
+    const width = Number(getAttributes(target, 'width'))
+    const height = Number(getAttributes(target, 'height'))
+    const t_left = target.getBoundingClientRect().left
+    const t_top = target.getBoundingClientRect().top
+    // 相对父级
+    let left = x - t_left
+    let top = y - t_top
+    let right = width - left
+    let bottom = height - top
+    // 到四个角的距离
+    let toLeftTop = Math.sqrt(Math.pow(left, 2) + Math.pow(top, 2))
+    let toRightTop = Math .sqrt(Math.pow(right, 2) + Math.pow(top, 2))
+    let toLeftBottom = Math.sqrt(Math.pow(left, 2) + Math.pow(bottom, 2))
+    let toRightBottom = Math.sqrt(Math.pow(right, 2) + Math.pow(bottom, 2))
+    const max = Math.max(toLeftTop, toRightTop, toLeftBottom, toRightBottom)
+
     let div = document.createElement('div')
     div.className = 'ripple'
-    div.style.left = left + 'px'
-    div.style.top = top + 'px'
+    div.style.left = left - max + 'px'
+    div.style.top = top - max + 'px'
+    div.style.width = max * 2 + 'px'
+    div.style.height = max * 2 + 'px'
     target.appendChild(div)
+    window.setTimeout(() => { target.removeChild(div) }, 200)
 })
-document.addEventListener('mouseup', e => {
-    console.log(e)
-})
+// document.addEventListener('mouseup', e => {
+//     let target = e.target
+//     let parent = target.parentNode
+//     if(target.className.indexOf('wave') < 0){
+//         if(parent.className.indexOf('wave') < 0){
+//             return false
+//         }else{
+//             target = parent
+//         }
+//     }
+//     window.setTimeout(() => {
+//         let nodes = target.childNodes
+//         for(let node of nodes){
+//             if(node.className === 'ripple'){
+//                 target.removeChild(node)
+//             }
+//         }
+//     }, 100)
+// })
 
 export default {
     install: (Vue, options) => {
@@ -99,7 +129,7 @@ export default {
          * @param property  属性名
          * @param pseudo    伪类名
          */
-        Vue.prototype.$getAttributes = (ele, property, pseudo) => window.getComputedStyle(ele, pseudo).getPropertyValue(property).replace('px', '')
+        Vue.prototype.$getAttributes = getAttributes
 
         // axios
         Vue.prototype.$http = Axios

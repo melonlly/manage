@@ -1,3 +1,4 @@
 .user {
-  background-color: #00bfff;
+  color: $sub-color;
+  background-color: $color;
 }

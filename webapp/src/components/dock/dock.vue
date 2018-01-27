@@ -5,7 +5,7 @@
 			<a class="center up" v-show="showTip" @click.prevent="showDock"><i>^</i></a>
 		</transition>
 		<ul>
-			<li @click="select(dock)" :class="{active: dock === active}" class="center" :style="{width: 72 / docks.length + '%'}" v-for="dock in docks">
+			<li @click="select(dock)" :class="{active: dock === active}" class="center wave" :style="{width: 72 / docks.length + '%'}" v-for="dock in docks">
 				{{dock.text}}
 			</li>
 		</ul>

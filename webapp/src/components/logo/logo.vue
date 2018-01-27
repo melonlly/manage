@@ -25,5 +25,6 @@
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus" scoped>
+	@import "../../common/stylus/base.styl";
 	@import "logo.styl";
 </style>
