@@ -1,52 +1,65 @@
+$li-h = 48px
+
 .nvg
     ul
         display: flex
         position: relative
+        flex-direction: column
         justify-content: center
-        height: 100%
+        width: 100%
         .cursor
             position: absolute
             z-index: 101
             top: 0
             left: 0
-            border-top: 2px solid $sub-color
+            border-left: 2px solid $color
             content: ''
-            transition: margin-left .2s ease-in-out
+            transition: margin-top .3s $cubic-bezier
         li
             position: relative
-            flex-direction: column
-            height: 100%
+            z-index: 100
+            width: 100%
             cursor: pointer
-            .text
-                position: relative
-                display: block
-                z-index: 100
-                text-align: center
+            background-color: $sub-color
+            transition: background-color .3s $cubic-bezier
+            .item
+                z-index: 51
                 width: 100%
-                color: $nav-font-color
-                background-color: $color
-            .sub
-                position: absolute
-                z-index: 50
-                width: 100%
-                $shadow()
-                .sub-cursor
+                height: $li-h
+                &.hover
+                    $hover()
+                .text
                     position: absolute
-                    display: inline-block
-                    z-index: 51
-                    left: 0
-                    top: 0
-                    border-left: 2px solid $sub-color
-                    border-top: none
-                    content: ''
-                    transition: margin-top .2s ease-in-out
-                span
-                    position: relative
+                    left: 20%
                     display: block
-                    align-items: flex-start
-                    padding-left: 10px
-                    height: 40px
-                    line-height: 40px
-                    background-color: $color
+                    width: 60%
+                    height: $li-h
+                    line-height: $li-h
+                    color: $color
+                .drop
+                    position: absolute
+                    right: 0
+                    top: 0
+                    width: 20%
+                    height: 100%
+                    background: url(/static/images/expand.png) no-repeat center
+                    transition: transform .3s $cubic-bezier
+                    &.open
+                        transform: rotate(180deg)
+            .sub
+                width: 100%
+                height: 0
+                overflow: hidden
+                transition: height .3s $cubic-bezier
+                span
+                    height: $li-h
+                    line-height: $li-h
+                    background-color: $sub-color
+                    &.focus
+                        $hover()
+                        a
+                            $focus()
+                    &:hover
+                        $hover()
                     a
-                        color: $nav-font-color
+                        color: $color

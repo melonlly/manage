@@ -1,5 +1,5 @@
 <template>
-	<div class="main">
+	<div class="content">
 		<div class="table_box">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
@@ -149,5 +149,6 @@
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus" scoped>
+	@import "../../common/stylus/mixin.styl";
 	@import "list.styl";
 </style>

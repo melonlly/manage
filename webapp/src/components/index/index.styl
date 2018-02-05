@@ -1,24 +1,49 @@
+$header-h = 64px
+
 #index
+    position: relative
     width: 100%
     .header
-        display: flex
+        position: fixed
         top: 0
-        height: 8%
+        left: 0
+        right: 0
+        z-index: 9999
+        width: 100%
+        height: $header-h
+        line-height: $header-h
+        background-color: $color
+        $shadow()
         .logo
+            display: inline-block
             width: 10%
-        .nvg
-            width: 70%
+            height: 100%
         .user
+            display: inline-block
+            float: right
             width: 20%
+            height: 100%
+
+    .left
+        position: absolute
+        top: $header-h
+        bottom: 0
+        z-index: 999
+        width: 15%
+        height: 92%
+        color: $color
+        background-color: $sub-color
 
     .main
+        position: absolute
+        top: $header-h
+        right: 0
         height: 90%
-        .content
-            height: 100%
+        width: 85%
 
     .footer
         position: fixed
         bottom: 0
-        margin-left: 10%
-        width: 80%
+        margin-left: 20%
+        width: 75%
         height: 8%

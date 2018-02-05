@@ -19,6 +19,8 @@ const createLintingRule = () => ({
     }
 })
 
+console.log(vueLoaderConfig)
+
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
@@ -37,7 +39,8 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js',
             'src': path.resolve(__dirname, '../src'),
             'common': path.resolve(__dirname, '../src/common'),
-            'components': path.resolve(__dirname, '../src/components')
+            'components': path.resolve(__dirname, '../src/components'),
+            'static': path.resolve(__dirname, '../static')
         }
     },
     module: {
@@ -51,7 +54,15 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: [resolve('src'), resolve('test')]
+                include: [resolve('src'), resolve('test')],
+                options: {
+                    "presets": [
+                        'babel-preset-env'
+                    ],
+                    "plugins": [
+                        "transform-runtime"
+                    ]
+                }
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

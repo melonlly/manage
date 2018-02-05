@@ -22,9 +22,9 @@
             top: 0
             width: 36px
             height: 36px
-            background: url(ic_expand.png) no-repeat center
-            transition: all .3s
-            &.close
+            background: url(/static/images/expand.png) no-repeat center
+            transition: transform .3s $cubic-bezier
+            &.open
                 transform: rotate(180deg)
     .drop_ul
         position: absolute
@@ -49,10 +49,10 @@
                 color: #282F35
                 font-size: 12px
                 &:hover
-                    background: #f4f4f5
+                    $hover()
 
 .drop-enter-active, .drop-leave-active{
-    transition: all .2s ease-in
+    transition: all .2s $cubic-bezier
     transform-origin: 50% 0
     transform: scaleY(1)
 }

@@ -13,18 +13,18 @@
             return {}
         },
         methods: {
-            
+
         },
         created () {
-            
+
         },
         components: {
-            
+
         }
     }
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus" scoped>
-	@import "../../common/stylus/base.styl";
+	@import "../../common/stylus/mixin.styl";
 	@import "user.styl";
 </style>

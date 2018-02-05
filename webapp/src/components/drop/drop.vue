@@ -1,7 +1,7 @@
 <template>
 	<div class="drop" :style="{ width: width }" @mouseleave="leave">
 		<div class="input" @click="showUl">
-			<input type="text" :value="current.text" :readonly="readonly"><i :class="{ close: show }"></i>
+			<input type="text" :value="current.text" :readonly="readonly"><i :class="{ open: show }"></i>
 		</div>
 		<transition name="drop">
 			<ul class="drop_ul" v-show="show">
@@ -64,5 +64,6 @@
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus" scoped>
+	@import "../../common/stylus/mixin.styl";
 	@import "drop.styl";
 </style>

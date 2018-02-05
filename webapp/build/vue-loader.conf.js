@@ -6,6 +6,8 @@ const sourceMapEnabled = isProduction
     ? config.build.productionSourceMap
     : config.dev.cssSourceMap
 
+console.log(isProduction)
+
 module.exports = {
     loaders: utils.cssLoaders({
         sourceMap: sourceMapEnabled,
