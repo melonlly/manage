@@ -10,11 +10,15 @@
 <script type="text/ecmascript-6">
     import list from 'components/list/list'
     import VForm from 'components/VForm/VForm'
+	import bus from 'components/bus/bus'
 
     export default {
         name: 'Vmain',
         data () {
-            return {}
+            return {
+                index: '',
+				sub_index: ''
+			}
         },
         methods: {
             before () {},
@@ -125,6 +129,11 @@
                     func: 'export'
                 }
             ]
+
+			bus.$on('choose', data => {
+				this.index = data.index
+				this.sub_index = data.sub_index
+			})
         },
         components: {
             list, VForm

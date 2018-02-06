@@ -20,6 +20,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+	import bus from 'components/bus/bus'
+
     export default {
         props: ['nvgs'],
         name: 'nvg',
@@ -69,17 +71,26 @@
                 item.className = item.className.replace('hover', '')
             },
             chooseIt (index, sub_index) {
+                console.log('nvg.vue', index, sub_index)
                 this.cur_index = index
 				this.cur_sub_index = sub_index
+				bus.$emit('choose', {
+				    index, sub_index
+				})
 			}
         },
         created () {
 
         },
         mounted () {
+            let index = this.cur_index
+			let sub_index = this.cur_sub_index
             this.li_height = this.$getAttributes(document.querySelector('.nvg li .item'), 'height')
             document.getElementsByClassName('cursor')[0].style.height = this.li_height + 'px'
-            this.openSub(0, this.nvgs[0].sub.length, document.querySelector('.nvg li'))
+            this.openSub(index, this.nvgs[index].sub.length, document.querySelector('.nvg li'))
+            bus.$emit('choose', {
+                index, sub_index
+            })
         },
         components: {}
     }
