@@ -50,10 +50,10 @@
 				drop.className = className
             },
             onNav (index, e) {
-                let li = document.querySelectorAll('.nvg li')[index]
-                document.getElementsByClassName('cursor')[0].style.marginTop =
+                let li = this.document.getElementsByTagName('li')[index]
+                this.document.getElementsByClassName('cursor')[0].style.marginTop =
                     li.getBoundingClientRect().top -
-                    document.getElementsByClassName('nvg')[0].getBoundingClientRect().top + 'px'
+                    this.document.getBoundingClientRect().top + 'px'
                 this.cursor = true
 				let item = li.querySelector('.item')
 				if(item.className.indexOf('hover') < 0){
@@ -64,14 +64,13 @@
                 }
             },
             outNav (index, e) {
-                let li = document.querySelectorAll('.nvg li')[index]
-                document.getElementsByClassName('cursor')[0].style.marginTop = '0px'
+                let li = this.document.getElementsByTagName('li')[index]
+                this.document.getElementsByClassName('cursor')[0].style.marginTop = '0px'
                 this.cursor = false
                 let item = li.querySelector('.item')
                 item.className = item.className.replace('hover', '')
             },
             chooseIt (index, sub_index) {
-                console.log('nvg.vue', index, sub_index)
                 this.cur_index = index
 				this.cur_sub_index = sub_index
 				bus.$emit('choose', {
@@ -83,11 +82,12 @@
 
         },
         mounted () {
+            this.document = this.$doc(this)
             let index = this.cur_index
 			let sub_index = this.cur_sub_index
-            this.li_height = this.$getAttributes(document.querySelector('.nvg li .item'), 'height')
-            document.getElementsByClassName('cursor')[0].style.height = this.li_height + 'px'
-            this.openSub(index, this.nvgs[index].sub.length, document.querySelector('.nvg li'))
+            this.li_height = this.$getAttributes(this.document.querySelector('li .item'), 'height')
+            this.document.getElementsByClassName('cursor')[0].style.height = this.li_height + 'px'
+            this.openSub(index, this.nvgs[index].sub.length, this.document.getElementsByTagName('li')[0])
             bus.$emit('choose', {
                 index, sub_index
             })

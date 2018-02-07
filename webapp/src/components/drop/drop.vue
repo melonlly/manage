@@ -3,7 +3,7 @@
 		<div class="input" @click="showUl">
 			<input type="text" :value="current.text" :readonly="readonly"><i :class="{ open: show }"></i>
 		</div>
-		<transition name="drop">
+		<transition :name="isUp ? 'dropUp' : 'drop'">
 			<ul class="drop_ul" v-show="show">
 				<li @click="select(item)" v-for="item in entries"><a>{{item.text}}</a></li>
 			</ul>
@@ -21,7 +21,8 @@
 				current: {
                     text: '',
                     _value: ''
-				}
+				},
+				isUp: false
 			}
         },
         methods: {
@@ -39,7 +40,6 @@
                     value: item.value || item.text
 				}
 				this.show = false
-//                this.$parent[this.feild] = this.value
 				this.$emit('setValue', {
                     name: this.feild,
 					value: this.current.value
@@ -57,6 +57,17 @@
         created () {
             this.reset()
         },
+		mounted () {
+            this.document = this.$doc(this)
+            // 若下拉内容长度超出页面，则向上显示
+            let bottom = this.document.getBoundingClientRect().bottom // drop底部距离视口顶部距离
+            let ulH = this.entries.length * 44
+            if(bottom + ulH > window.innerHeight){
+                // ul的高度 + drop的高度 + border
+                this.document.getElementsByClassName('drop_ul')[0].style.marginTop = '-' + (ulH + 38 + 1) + 'px'
+				this.isUp = true
+            }
+		},
         components: {
             
         }

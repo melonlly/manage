@@ -349,7 +349,7 @@
                 this.library.year = yearTmp
                 this.showOne('year')
                 this.$nextTick(() => {
-                    let listDom = document.getElementById('yearList')
+                    let listDom = this.document.getElementById('yearList')
                     listDom.scrollTop = (listDom.scrollHeight - 100)
                     this.addYear()
                 })
@@ -391,7 +391,7 @@
                 this.showOne('month')
             },
             addYear () {
-                let listDom = document.getElementById('yearList')
+                let listDom = this.document.getElementById('yearList')
                 listDom.addEventListener('scroll', (e) => {
                     if (listDom.scrollTop < listDom.scrollHeight - 100) {
                         let len = this.library.year.length
@@ -462,17 +462,24 @@
             shiftActTime () {
                 // shift activated time items to visible position.
                 this.$nextTick(() => {
-                    if (!document.querySelector('.hour-item.active')) {
+                    if (!this.document.querySelector('.hour-item.active')) {
                         return false
                     }
-                    document.querySelector('.hour-box').scrollTop = (document.querySelector('.hour-item.active').offsetTop || 0) - 250
-                    document.querySelector('.min-box').scrollTop = (document.querySelector('.min-item.active').offsetTop || 0) - 250
+                    this.document.querySelector('.hour-box').scrollTop = (this.document.querySelector('.hour-item.active').offsetTop || 0) - 250
+                    this.document.querySelector('.min-box').scrollTop = (this.document.querySelector('.min-item.active').offsetTop || 0) - 250
                 })
             }
-        }
+        },
+		created () {
+
+		},
+		mounted () {
+            this.document = this.$doc(this)
+		}
     }
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus" scoped>
+	@import "../../common/stylus/mixin.styl";
 	@import "datepicker.styl";
 </style>

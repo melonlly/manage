@@ -133,7 +133,7 @@ export default {
         Vue.prototype.ERR_OK = ERR_OK
 
         // 计算页面高度
-        Vue.prototype.$height = () => window.innerHeight + "px"
+        Vue.prototype.$height = () => window.innerHeight
 
         /**
          * 获取元素属性（只读）
@@ -151,5 +151,8 @@ export default {
 
         // 获取或赋值菜单目录
         Vue.prototype.$menu = menu => menu ? Vue.prototype.menu = menu : Vue.prototype.menu
+
+        // 当前组件document（只能在mounted中初始化，created中还未生成dom）
+        Vue.prototype.$doc = component => component.$vnode.elm
     }
 }

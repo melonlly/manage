@@ -38,10 +38,10 @@
             },
             showDock () {
                 this.showTip = false
-                document.getElementsByClassName('dock')[0].style.marginTop = ''
+                this.document.getElementsByClassName('dock')[0].style.marginTop = ''
 			},
 			hideDock () {
-                document.getElementsByClassName('dock')[0].style.marginTop = this.$getAttributes(document.getElementsByClassName('dock')[0], 'height') + 'px'
+                this.document.getElementsByClassName('dock')[0].style.marginTop = this.$getAttributes(this.document.getElementsByClassName('dock')[0], 'height') + 'px'
                 this.showTip = true
 			}
         },
@@ -49,6 +49,7 @@
 
         },
 		mounted () {
+            this.document = this.$doc(this)
             this.select(this.docks[this.default])
 		},
         components: {

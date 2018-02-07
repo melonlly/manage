@@ -1,4 +1,5 @@
-$header-h = 64px
+$header-h = 64px /* header高度 */
+$header-shadow = 5px /* header阴影高度 */
 
 #index
     position: relative
@@ -8,7 +9,7 @@ $header-h = 64px
         top: 0
         left: 0
         right: 0
-        z-index: 9999
+        z-index: 888
         width: 100%
         height: $header-h
         line-height: $header-h
@@ -25,20 +26,21 @@ $header-h = 64px
             height: 100%
 
     .left
-        position: absolute
-        top: $header-h
-        bottom: 0
-        z-index: 999
+        display: inline-block
+        margin-top: $header-h
+        z-index: 777
+        padding-top: $header-shadow
         width: 15%
-        height: 92%
         color: $color
         background-color: $sub-color
+        overflow-x: hidden
+        overflow-y: auto
 
     .main
-        position: absolute
-        top: $header-h
-        right: 0
-        height: 90%
+        display: inline-block
+        float: right
+        margin-top: $header-h
+        padding-top: $header-shadow
         width: 85%
 
     .footer

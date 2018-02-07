@@ -1,8 +1,8 @@
 <template>
 
 	<div class="main">
-		<VForm height="30%" :def="def" :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
-		<list height="70%" ref="list" :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
+		<VForm :def="def" :feilds="feilds" :operates="operates" @search="search" @file="file" @import="v_import" @export="v_export"></VForm>
+		<list ref="list" :options="options" :columns="columns" @filter="filter" @before="before" @after="after"></list>
 	</div>
 
 </template>
@@ -135,6 +135,9 @@
 				this.sub_index = data.sub_index
 			})
         },
+		mounted () {
+
+		},
         components: {
             list, VForm
         }

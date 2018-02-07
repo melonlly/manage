@@ -1,9 +1,8 @@
-.content
-    padding: 30px 10px
-    background: #ffffff
-    border-radius: 7px
-    height: 100%
+.list
+    padding: 0 10px
+    background: $sub-color
     .table_box
+        height: 90%
         table
             tr
                 display: table-row
@@ -25,21 +24,24 @@
                     color: #040404
                     .icon_remove
                         display: inline-block
-                        zoom: 1
                         margin: 0 10px
                         width: 30px
                         height: 30px
                         background: url(remove.png) no-repeat center;
+                        cursor: pointer
     .no_data
         text-align: center
         margin: 100px 0
     .pages
-        height: 10%
-        margin-top: 25px
+        position: relative
+        bottom: 0
+        left: 0
+        margin-top: 10px
+        padding: 0 10px
         .num
             float: left
-            height: 36px
-            line-height: 36px
+            height: 38px
+            line-height: 38px
             span
                 float: left
                 font-size: 16px
@@ -49,6 +51,8 @@
                 margin-left: 20px
         .stat
             float: right
+            height: 38px
+            line-height: 38px
             span
                 float: left
                 font-size: 16px

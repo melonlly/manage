@@ -1,5 +1,5 @@
 <template>
-	<div class="content">
+	<div class="list">
 		<div class="table_box">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>

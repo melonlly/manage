@@ -27,5 +27,6 @@
 </script>
 
 <style lang="stylus" ref="stylesheet/stylus">
+	@import "../../common/stylus/mixin.styl";
 	@import "pop.styl";
 </style>

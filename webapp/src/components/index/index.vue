@@ -1,17 +1,17 @@
 <template>
 
-	<div id="index" :style="{ height: $height() }">
+	<div id="index" :style="{ height: $height() + 'px' }">
 
 		<div class="header">
 			<logo></logo>
 			<user></user>
 		</div>
 
-		<div class="left">
+		<div class="left" :style="{ height: $height() - 64 - 5 + 'px' }">
 			<nvg :nvgs="mains" v-if="mains"></nvg>
 		</div>
 
-		<Vmain></Vmain>
+		<Vmain :style="{ height: $height() - 64 - 5 + 'px' }"></Vmain>
 
 		<!--<div class="footer">-->
 			<!--<dock ref="dock" :docks="docks" @select="selectDock" v-if="docks"></dock>-->

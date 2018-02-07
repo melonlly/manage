@@ -1,6 +1,6 @@
 <template>
 
-	<div id="login" :style="{ height: $height() }">
+	<div id="login" :style="{ height: $height() + 'px' }">
 		<div class="login-box">
 			<div class="title">
 				Manage
