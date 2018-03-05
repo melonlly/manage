@@ -4,7 +4,7 @@
 			<input type="text" :value="current.text" :readonly="readonly"><i :class="{ open: show }"></i>
 		</div>
 		<transition :name="isUp ? 'dropUp' : 'drop'">
-			<ul class="drop_ul" v-show="show">
+			<ul class="drop_ul" v-show="show" v-if="!noDrop">
 				<li @click="select(item)" v-for="item in entries"><a>{{item.text}}</a></li>
 			</ul>
 		</transition>
@@ -13,7 +13,7 @@
 
 <script type="text/ecmascript-6">
     export default {
-        props: ['feild', 'entries', 'width', 'default', 'value', 'readonly'],
+        props: ['feild', 'entries', 'width', 'default', 'value', 'noDrop', 'readonly'],
         name: 'drop',
         data () {
             return {
@@ -37,7 +37,7 @@
             select (item) {
                 this.current = {
                     text: item.text,
-                    value: item.value || item.text
+                    value: item.value
 				}
 				this.show = false
 				this.$emit('setValue', {
@@ -47,7 +47,7 @@
 			},
 			// 重置（置为空或置为默认值）
 			reset () {
-				let item = this.entries.find(item => item.value === this.default)
+				let item = this.entries.find(item => item.value === this.default + '')
                 this.current = {
                     text: item ? item.text : this.default || '',
                     value: this.value || this.default || ''

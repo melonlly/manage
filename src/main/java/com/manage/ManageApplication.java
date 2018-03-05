@@ -1,12 +1,8 @@
 package com.manage;
 
-import com.manage.user.dao.UserDao;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.annotation.Bean;
 
 //@Configuration ：标明该类使用Spring基于Java的配置
 //@ComponentScan ：启用组件扫描

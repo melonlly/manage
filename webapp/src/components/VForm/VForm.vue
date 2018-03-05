@@ -3,7 +3,7 @@
 	<div class="VForm">
 		<div class="feilds">
 			<template v-for="feild in _feilds">
-				<div class="feild-cpt center" v-if="feild.component">
+				<div :class="feild.br ? 'feild-cpt' : 'feild-cpt center'" v-if="feild.component">
 					<span class="text">{{feild.text}}:</span>
 					<component class="cpt" :is="feild.component"
 							   :feild="feild.name"
@@ -11,6 +11,7 @@
 							   :width="feild.width"
 							   :default="feild.default"
 							   :value="feild.value"
+							   :noDrop="feild.noDrop"
 							   :readonly="feild.readonly"
 							   @setValue="setValue"
 
@@ -18,15 +19,19 @@
 							   :limit="limit"
 					></component>
 				</div>
-				<div class="feild-input center" v-else>
+				<div :class="feild.br ? 'feild-input' : 'feild-input center'" v-else-if="!feild.tag">
 					<span class="text">{{feild.text}}:</span>
-					<input class="input" type="text" :value="feild.value" @input="setValue(feild, $event)">
+					<input class="input" type="text" :readonly="feild.readonly" :value="feild.value" @input="setValue(feild, $event)">
+				</div>
+				<div :class="feild.br ? 'feild-text' : 'feild-text center'" v-else>
+					<span class="text">{{feild.text}}:</span>
+					<textarea @input="setValue(feild, $event)" :value="feild.value"></textarea>
 				</div>
 			</template>
 		</div>
 		<div class="operates">
-			<div class="operate" v-for="operate in _operates">
-				<a @click.prevent="doIt(operate)" :class="operate.type">{{operate.name}}</a>
+			<div class="operate" @click="doIt(operate)" v-for="operate in _operates">
+				<a :class="operate.type">{{operate.name}}</a>
 			</div>
 		</div>
 	</div>
@@ -38,7 +43,7 @@
 	import datepicker from 'components/datepicker/datepicker'
 
     export default {
-        props: ['def', 'feilds', 'operates'],
+        props: ['required', 'def', 'feilds', 'operates'],
         name: 'VForm',
         data () {
             return {
@@ -63,15 +68,33 @@
 				})
                 _this._operates.forEach(operate => {
 				    if(operate.func === 'search' && operate.auto){
-                        _this.$emit('search', _this.params)
+				        _this.$parent.search(_this.params)
+//                        _this.$emit('search', _this.params)
 					}
 				})
 			},
 			// 操作按钮事件
             doIt (operate) {
                 let _this = this
-				if(operate.func && operate.type !== 'reset'){
-                    _this.$emit(operate.func, _this.params) // 调用按钮对应的事件
+                if(_this.required){
+                    // 校验必填字段
+                    _this.feilds.every(feild => {
+					    if(feild.require){
+                            if(_this.params[feild.name]){
+                                return true
+							}else {
+                                alert(feild.text + '为必填项！')
+                                return false
+							}
+						}else{
+					        return true
+						}
+					})
+                    return false
+                }
+				if(operate.type && operate.type !== 'reset'){
+                    _this.$parent[operate.func](_this.params)
+//                    _this.$emit(operate.func, _this.params) // 调用按钮对应的事件
 				}else{
 				    // 表单重置，分别调用表单组件的reset
 				    if(operate.type === 'reset'){

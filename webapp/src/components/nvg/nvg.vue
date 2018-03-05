@@ -1,16 +1,21 @@
 <template>
 
+	<!-- 二级导航 -->
 	<div class="nvg">
 		<ul>
 			<span class="cursor" v-show="cursor"></span>
 			<li @mouseover="onNav(index, $event)" @mouseleave="outNav(index, $event)" v-for="(nvg, index) in nvgs">
 				<div class="item wave color" @click="openSub(index, nvg.sub.length, $event.target.parentNode)">
-					<a class="text">{{nvg.text}}</a>
+					<a class="text">{{ use.text ? nvg[use.text] : nvg.text }}</a>
 					<i class="drop" v-if="nvg.sub"></i>
 				</div>
 				<div class="sub" v-if="nvg.sub">
-					<span class="center item wave color" :class="{ focus: cur_index === index && cur_sub_index === sub_index }" @click="chooseIt(index, sub_index)" v-for="(sub, sub_index) in nvg.sub">
-						<a>{{sub.text}}</a>
+					<span class="center item wave color" :class="{ focus: cur_index === index && cur_sub_index === sub_index }" @click="chooseIt(index, sub_index, sub.url)" v-for="(sub, sub_index) in nvg.sub">
+						<a>
+							{{
+								use.sub ? sub[use.sub.text] : sub.text
+							}}
+						</a>
 					</span>
 				</div>
 			</li>
@@ -23,13 +28,14 @@
 	import bus from 'components/bus/bus'
 
     export default {
-        props: ['nvgs'],
+        props: ['nvgs', 'use'],
         name: 'nvg',
         data () {
             return {
                 cursor: false,
                 cur_index: 0,
-                cur_sub_index: 0
+                cur_sub_index: 0,
+				url: ''
             }
         },
         methods: {
@@ -70,11 +76,12 @@
                 let item = li.querySelector('.item')
                 item.className = item.className.replace('hover', '')
             },
-            chooseIt (index, sub_index) {
+            chooseIt (index, sub_index, url) {
                 this.cur_index = index
 				this.cur_sub_index = sub_index
+				this.url = url
 				bus.$emit('choose', {
-				    index, sub_index
+				    index, sub_index, url
 				})
 			}
         },
@@ -85,11 +92,12 @@
             this.document = this.$doc(this)
             let index = this.cur_index
 			let sub_index = this.cur_sub_index
+			let url = this.nvgs[index]['sub'][sub_index].url
             this.li_height = this.$getAttributes(this.document.querySelector('li .item'), 'height')
             this.document.getElementsByClassName('cursor')[0].style.height = this.li_height + 'px'
             this.openSub(index, this.nvgs[index].sub.length, this.document.getElementsByTagName('li')[0])
             bus.$emit('choose', {
-                index, sub_index
+                index, sub_index, url
             })
         },
         components: {}

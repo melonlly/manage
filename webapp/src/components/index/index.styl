@@ -15,10 +15,15 @@ $header-shadow = 5px /* header阴影高度 */
         line-height: $header-h
         background-color: $color
         $shadow()
-        .logo
-            display: inline-block
-            width: 10%
-            height: 100%
+        .list
+            $icon(50px, 'list.png')
+            margin: 7px 10px
+            border-radius: 50%
+            &:hover
+                background-color: rgba(255, 255, 255, .1)
+        //.logo
+        //    display: inline-block
+        //    width: 10%
         .user
             display: inline-block
             float: right

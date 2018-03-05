@@ -1,60 +1,3 @@
-require('es6-promise').polyfill() // 支持promise
-import axios from 'axios'
-
-const ERR_OK = "0"
-
-const Axios = axios.create({
-    baseURL: '/api',
-    timeout: 20000
-})
-
-// 请求拦截器
-Axios.interceptors.request.use(req => {
-    // console.log(req)
-    if (req.method === 'post') {
-        // json 转 FormData
-        // const formData = new FormData()
-        // Object.keys(req.data).forEach(key => formData.append(key, req.data[key]))
-        // req.data = formData
-
-        req.method = 'GET'
-    }
-
-    if (localStorage.token) {
-        req.headers.Authorization = localStorage.token
-    }
-    return req
-}, error => {
-    alert('错误的传参')
-    return Promise.reject(error)
-})
-
-// 响应拦截器
-Axios.interceptors.response.use(res => {
-    // console.log(res)
-    if (res.status !== 200) {
-        return Promise.reject(res)
-    }
-    if (res.data.code === ERR_OK) {
-        return res
-    } else {
-        alert(res.data.error)
-    }
-}, error => {
-    const code = error.response.status
-    switch (code) {
-        // 401 说明 token 验证失败 可以直接跳转到登录页面，重新登录获取 token
-        case 401: {
-
-        }
-        case 404: {
-
-        }
-    }
-
-    return Promise.reject(error.response.data)
-})
-
 const getAttributes = (ele, property, pseudo) => window.getComputedStyle(ele, pseudo).getPropertyValue(property).replace('px', '')
 
 const getWaveTarget = target => {
@@ -128,10 +71,7 @@ document.addEventListener('mousedown', e => {
 // })
 
 export default {
-    install: (Vue, options) => {
-        // 成功
-        Vue.prototype.ERR_OK = ERR_OK
-
+    install (Vue) {
         // 计算页面高度
         Vue.prototype.$height = () => window.innerHeight
 
@@ -142,9 +82,6 @@ export default {
          * @param pseudo    伪类名
          */
         Vue.prototype.$getAttributes = getAttributes
-
-        // axios
-        Vue.prototype.$http = Axios
 
         // 菜单目录
         Vue.prototype.menu = []

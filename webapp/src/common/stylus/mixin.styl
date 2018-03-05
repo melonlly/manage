@@ -39,6 +39,15 @@ border-bottom-setter($width, $color)
         border-bottom: $width solid $color
         content: ' '
 
+/* 操作按钮 */
+$icon($size, $url)
+    display: inline-block
+    margin: 0 10px
+    width: $size
+    height: $size
+    background: url($url) no-repeat center;
+    cursor: pointer
+
 @keyframes fadein
     from
         opacity 0

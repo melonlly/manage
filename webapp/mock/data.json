@@ -1,25 +1,104 @@
 {
-    "list": {
+    "login": {
+        "code": "0",
+        "error": "success",
+        "data": [
+            {
+                "id": "3",
+                "name": "parents1",
+                "create_time": "2018-01-01 12:11:10",
+                "is_admin": "0",
+                "status": "1",
+                "role": "2",
+                "relation": "学生1",
+                "phone": "1888888888"
+            }
+        ]
+    },
+    "catalog": {
+        "code": "0",
+        "error": "success",
+        "data": [
+            {
+                "id": "",
+                "parentid": "",
+                "name": "消息管理",
+                "sub": [
+                    {
+                        "id": "4",
+                        "parentid": "",
+                        "name": "最新消息",
+                        "url": "news"
+                    }
+                ]
+            },
+            {
+                "id": "",
+                "parentid": "",
+                "name": "学生管理",
+                "sub": [
+                    {
+                        "id": "",
+                        "parentid": "",
+                        "name": "考勤管理",
+                        "url": "daily"
+                    },
+                    {
+                        "id": "",
+                        "parentid": "",
+                        "name": "成绩管理",
+                        "url": "score"
+                    }
+                ]
+            },
+            {
+                "id": "",
+                "parentid": "",
+                "name": "权限管理",
+                "sub": [
+                    {
+                        "id": "",
+                        "parentid": "",
+                        "name": "用户管理",
+                        "url": "users"
+                    }
+                ]
+            }
+        ]
+    },
+    "daily": {
         "code": "0",
         "error": "success",
         "data": [
             {
                 "id": "1",
-                "name": "user1",
-                "password": "password1",
-                "type": "1"
+                "name": "路飞",
+                "lesson": "1",
+                "phone": "1",
+                "homework": "1",
+                "daily": "1",
+                "clean": "1",
+                "date": "2018-01-01 11:11:11"
             },
             {
                 "id": "2",
-                "name": "user2",
-                "password": "password2",
-                "type": "2"
+                "name": "索隆",
+                "lesson": "2",
+                "phone": "2",
+                "homework": "2",
+                "daily": "2",
+                "clean": "2",
+                "date": "2018-01-02 11:11:11"
             },
             {
                 "id": "3",
-                "name": "user3",
-                "password": "password1",
-                "type": "1"
+                "name": "香吉士",
+                "lesson": "3",
+                "phone": "3",
+                "homework": "3",
+                "daily": "2",
+                "clean": "2",
+                "date": "2018-01-03 11:11:11"
             }
         ],
         "total": "3",
@@ -27,226 +106,134 @@
         "index": "1",
         "size": "10"
     },
-    "menu": {
+    "score": {
         "code": "0",
         "error": "success",
         "data": [
             {
-                "text": "nav-main-1",
-                "sub": [
-                    {
-                        "text": "nav1",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav2",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav3",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav4",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav5",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav6",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }
-                ]
+                "id": "1",
+                "name": "路飞",
+                "exam": "1",
+                "week1": "10",
+                "week2": "20",
+                "week3": "30",
+                "english": "",
+                "social": "",
+                "science": "",
+                "chinese": "",
+                "math": "",
+                "physical": ""
             },
             {
-                "text": "nav-main-2",
-                "sub": [
-                    {
-                        "text": "nav7",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav8",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav9",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav10",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav11",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav12",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }
-                ]
+                "id": "2",
+                "name": "索隆",
+                "exam": "2",
+                "week1": "",
+                "week2": "",
+                "week3": "",
+                "english": "40",
+                "social": "50",
+                "science": "60",
+                "chinese": "70",
+                "math": "80",
+                "physical": "90"
             },
             {
-                "text": "nav-main-3",
-                "sub": [
-                    {
-                        "text": "nav13",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav14",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav15",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav16",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav17",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav18",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }
-                ]
-            },
-            {
-                "text": "nav-main-4",
-                "sub": [
-                    {
-                        "text": "nav19",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav20",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav21",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav22",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav23",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav24",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }
-                ]
-            },
-            {
-                "text": "nav-main-5",
-                "sub": [
-                    {
-                        "text": "nav25",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav26",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav27",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav28",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav29",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav30",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }
-                ]
-            },
-            {
-                "text": "nav-main-6",
-                "sub": [
-                    {
-                        "text": "nav31",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav32",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav33",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav34",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav35",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }, {
-                        "text": "nav36",
-                        "sub": [
-                            {"text": "sub1"}, {"text": "sub2"}, {"text": "sub3"}, {"text": "sub4"}, {"text": "sub5"}, {"text": "sub6"}
-                        ]
-                    }
-                ]
+                "id": "3",
+                "name": "香吉士",
+                "exam": "3",
+                "week1": "",
+                "week2": "",
+                "week3": "",
+                "english": "40",
+                "social": "50",
+                "science": "60",
+                "chinese": "70",
+                "math": "80",
+                "physical": "90"
             }
-        ]
+        ],
+        "total": "3",
+        "pages": "1",
+        "index": "1",
+        "size": "10"
+    },
+    "news": {
+        "code": "0",
+        "error": "success",
+        "data": [
+            {
+                "id": "1",
+                "name": "通知1",
+                "create_time": "2018-01-01 12:11:10",
+                "update_time": "2018-01-02 12:11:10",
+                "publisher": "龙猫玲子",
+                "updater": "西瓜。",
+                "content": "11111111111111111111111"
+            },
+            {
+                "id": "2",
+                "name": "通知2",
+                "create_time": "2018-01-03 12:11:10",
+                "update_time": "",
+                "publisher": "西瓜。",
+                "updater": "龙猫玲子",
+                "content": "22222222222222222222222"
+            }
+        ],
+        "total": "2",
+        "pages": "1",
+        "index": "1",
+        "size": "10"
+    },
+    "users": {
+        "code": "0",
+        "error": "success",
+        "data": [
+            {
+                "id": "1",
+                "name": "teacher1",
+                "create_time": "2018-01-01 12:11:10",
+                "is_admin": "1",
+                "status": "1",
+                "role": "1",
+                "relation": "",
+                "phone": "1888888888"
+            },
+            {
+                "id": "2",
+                "name": "teacher2",
+                "create_time": "2018-01-03 12:11:10",
+                "is_admin": "1",
+                "status": "1",
+                "role": "1",
+                "relation": "",
+                "phone": "1888888888"
+            },
+            {
+                "id": "3",
+                "name": "parents1",
+                "create_time": "2018-01-01 12:11:10",
+                "is_admin": "0",
+                "status": "1",
+                "role": "2",
+                "relation": "学生1",
+                "phone": "1888888888"
+            },
+            {
+                "id": "4",
+                "name": "parents2",
+                "create_time": "2018-01-03 12:11:10",
+                "is_admin": "0",
+                "status": "1",
+                "role": "2",
+                "relation": "学生2",
+                "phone": "1888888888"
+            }
+        ],
+        "total": "4",
+        "pages": "1",
+        "index": "1",
+        "size": "10"
     }
 }

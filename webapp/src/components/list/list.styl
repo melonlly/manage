@@ -2,8 +2,11 @@
     padding: 0 10px
     background: $sub-color
     .table_box
+        overflow: hidden
+        overflow-y: auto
         height: 90%
         table
+            table-layout: fixed
             tr
                 display: table-row
                 vertical-align: inherit
@@ -22,13 +25,15 @@
                     border-bottom: 1px solid #ededee
                     font-size: 14px
                     color: #040404
+                    text-overflow: ellipsis
+                    overflow: hidden
+                    white-space: nowrap
+                    .icon_detail
+                        $icon(30px, 'detail.png')
+                    .icon_edit
+                        $icon(30px, 'edit.png')
                     .icon_remove
-                        display: inline-block
-                        margin: 0 10px
-                        width: 30px
-                        height: 30px
-                        background: url(remove.png) no-repeat center;
-                        cursor: pointer
+                        $icon(30px, 'remove.png')
     .no_data
         text-align: center
         margin: 100px 0

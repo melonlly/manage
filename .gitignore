@@ -1,9 +1,12 @@
 .DS_Store
+out/*
+src/main/resources/*
 webapp/node_modules/
 webapp/dist/
 webapp/npm-debug.log*
 webapp/yarn-debug.log*
 webapp/yarn-error.log*
+.gitignore
 
 # Editor directories and files
 .idea

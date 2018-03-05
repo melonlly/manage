@@ -10,15 +10,20 @@
         data () {
             return {
                 index: '',
-                sub_index: ''
+                sub_index: '',
+				url: '',
+				showPop: false
             }
         },
         methods: {
             choose (data) {
-                console.log('bus.vue', data)
                 this.index = data.index
                 this.sub_index = data.sub_index
-            }
+				this.url = data.url
+            },
+			pop (show, content, type){
+                this.showPop = show
+			}
         },
         created () {
 

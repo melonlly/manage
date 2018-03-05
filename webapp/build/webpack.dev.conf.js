@@ -41,11 +41,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         }
     },
     plugins: [
+        /*
+         * 对开发环境 和生产环境对vue中对那些warning和一些提示信息的代码进行了去除，意思就是你在开发环境的时候，你可以看到那些提示信息，
+         * 但是在生产环境中那些提示信息不会加载到代码中，这对代码量大大减少，也不用开发两套进行引入。
+         */
         new webpack.DefinePlugin({
             'process.env': require('../config/dev.env')
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
+        new webpack.NamedModulesPlugin(), // 当开启 HMR 的时候使用该插件会显示模块的相对路径
         new webpack.NoEmitOnErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({

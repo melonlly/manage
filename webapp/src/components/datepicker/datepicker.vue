@@ -80,6 +80,10 @@
     export default {
         name: 'datepicker',
         props: {
+            feild: {
+                type: String,
+                required: true
+			},
             required: false,
             date: {
                 type: Object,
@@ -109,7 +113,8 @@
                             'border': '2px solid #fff',
                             'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)',
                             'border-radius': '2px',
-                            'color': '#5F5F5F'
+                            'color': '#5F5F5F',
+							'cursor': 'pointer'
                         },
                         placeholder: 'when?',
                         buttons: {
@@ -449,7 +454,10 @@
                     this.date.time = JSON.stringify(this.selectedDays)
                 }
                 this.showInfo.check = false
-                this.$emit('change', this.date.time)
+                this.$emit('setValue', {
+                    name: this.feild,
+                    value: this.date.time
+                })
             },
             dismiss (evt) {
                 if (evt.target.className === 'datepicker-overlay') {

@@ -1,10 +1,11 @@
 @import "../../common/stylus/mixin.styl"
 
 #login
-    background-size: cover;
-    background-image: url(bg1.jpg);
-    font-family: 'Open Sans', sans-serif;
-    width: 100%
+    background-image: url(bg1.jpg)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: 100% 100%
+    font-family: 'Open Sans', sans-serif
     .login-box
         position: fixed
         display: flex
@@ -20,20 +21,17 @@
             width: 80%
             height: 50px
             text-align: center
-            color: rgba(0, 0, 139, .8)
+            //color: rgba(0, 0, 139, .8)
+            color: #000000
             font-size: 30px
+            font-weight: 900
         .user
-            background-color: rgba(105, 105, 105, .3)
+            background-color: rgba(105, 105, 105, .5)
             border-radius: 15px
             height: 200px
             width: 80%
             div
-                padding: 5%
-                i
-                    height: 100%
-                    width: 25%
-                    padding-right: 5%
-                    color: #ffffff
+                padding: 5% 0
                 input
                     padding-left: 8%
                     height: 100%
@@ -44,8 +42,22 @@
             .account
                 height: 32.5%
                 border-bottom-setter(1px, rgba(255, 255, 255, .5))
+                i
+                    padding-right: 15%
+                    width: 56px
+                    height: 56px
+                    background-image: url(user.png)
+                    background-position: center
+                    background-repeat: no-repeat
             .password
                 height: 32.5%
+                i
+                    padding-right: 15%
+                    width: 56px
+                    height: 56px
+                    background-image: url(password.png)
+                    background-position: center
+                    background-repeat: no-repeat
         .login-in
             margin-top: 5%
             padding: 10px
@@ -53,6 +65,7 @@
             text-align: center
             background-color: rgba(105, 105, 105, .3)
             border-radius: 5px
-            color: #ffffff
+            color: #000000
             font-size: 25px
             cursor: pointer
+            font-weight: 900

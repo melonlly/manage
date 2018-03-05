@@ -19,8 +19,6 @@ const createLintingRule = () => ({
     }
 })
 
-console.log(vueLoaderConfig)
-
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {

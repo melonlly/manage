@@ -1,7 +1,7 @@
 <template>
 
 	<div class="logo center">
-		logo
+		<div class="text">logo</div>
 	</div>
 
 </template>
